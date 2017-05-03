@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="叩首问路 码梦为生">
+<meta name="description" content="什么是currying？维基百科是这么解释的:
+
+在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的，尽管它是Moses Schönfinkel和戈特洛布·弗雷格发明的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js中的柯里化(currying)">
 <meta property="og:url" content="http://yoursite.com/2017/04/23/js中的柯里化/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="叩首问路 码梦为生">
-<meta property="og:updated_time" content="2017-04-30T14:56:55.000Z">
+<meta property="og:description" content="什么是currying？维基百科是这么解释的:
+
+在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的，尽管它是Moses Schönfinkel和戈特洛布·弗雷格发明的。">
+<meta property="og:updated_time" content="2017-05-03T10:27:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中的柯里化(currying)">
-<meta name="twitter:description" content="叩首问路 码梦为生">
+<meta name="twitter:description" content="什么是currying？维基百科是这么解释的:
+
+在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的，尽管它是Moses Schönfinkel和戈特洛布·弗雷格发明的。">
 
 
 
@@ -379,7 +385,33 @@
       
 
       
-        
+        <h3 id="什么是currying？"><a href="#什么是currying？" class="headerlink" title="什么是currying？"></a>什么是currying？</h3><p>维基百科是这么解释的:</p>
+<blockquote>
+<p>在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的，尽管它是Moses Schönfinkel和戈特洛布·弗雷格发明的。</p>
+</blockquote>
+<a id="more"></a>
+<p>从字面上看，说了一堆确实不知道是什么意思。其实柯里化就是把一个多参数的函数，转化成一个接受部分参数，从而返回一个接受剩余参数的函数。<br>举个🌰：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//currying之前</div><div class="line">var add = function (x, y) &#123;</div><div class="line">	return x + y;</div><div class="line">&#125;</div><div class="line">add(1,2) </div><div class="line"></div><div class="line">//currying之后</div><div class="line">var add = function (x) &#123;</div><div class="line">	return function (y) &#123;</div><div class="line">		return x + y;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">add(1)(2)</div></pre></td></tr></table></figure>
+<p>单从这个🌰来看，确实是看不出currying的好处，反而觉得多此一举，那下面让我们看下为什么要柯里化，柯里化的好处是什么？  </p>
+<ol>
+<li>参数复用<br>从上面的例子来看，其实就能看出来了，被currying后的函数add调用时，<code>add(1)(2) //3</code>，<br><code>add(1)(3) //4</code>，这个参数1其实就复用了，这也是javascript中一个老生常谈的话题<code>闭包</code>。利用闭包的特性记住参数1，从而复用。  </li>
+<li>动态生成函数<br>正常的如果封装一个绑定事件的兼容写法，我们会这么写：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var addEvent = function(el, type, fn, capture) &#123;  </div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, function(e) &#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;, capture);</div><div class="line">    &#125; else if (window.attachEvent) &#123;</div><div class="line">        el.attachEvent(&quot;on&quot; + type, function(e) &#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;);</div><div class="line">    &#125; </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>函数本身没问题，但问题在于调用函数的时候，每次都需要判断一次，绑定十次，判断十次 。那如果能判断一次，让后续绑定调用函数的时候都不用在判断了呢，就是柯里化。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var addEvent = (function()&#123;</div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.addEventListener(sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;, (capture));</div><div class="line">        &#125;;</div><div class="line">    &#125; else if (window.attachEvent) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.attachEvent(&quot;on&quot; + sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>柯里化后的写法，调用这个<code>addEvent</code>会生成一个函数，这个函数是根据不同的浏览器兼容，返回一个动态的函数，这样的写法只有初始调用的时候判断一次，后续的绑定事件就不用再去判断了。  </p>
+<ol>
+<li>延迟执行  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> Function.prototype.bind = function(context) &#123;</div><div class="line">    var self = this;</div><div class="line">    var args = Array.prototype.slice.call(arguments);    </div><div class="line">    return function() &#123;</div><div class="line">        return self.apply(context, args.slice(1));    </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>其实<code>bind</code>方法就是利用函数柯里化返回一个延迟执行的改变上下文的函数。（函数主体本身不执行，与call/apply直接执行并改变不同，本质上就是延迟执行）。</p>
+<h4 id="最后我们用一道题目来结束这个话题。"><a href="#最后我们用一道题目来结束这个话题。" class="headerlink" title="最后我们用一道题目来结束这个话题。"></a>最后我们用一道题目来结束这个话题。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function sum(a, b, c) &#123;</div><div class="line">	return a + b + c;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function currying() &#123;</div><div class="line">	// TODO</div><div class="line">&#125;</div><div class="line"></div><div class="line">var curry = currying(sum)</div><div class="line">console.log(curry(1)(2)(3)) //6</div><div class="line">console.log(curry(1,2)(3)) //6</div><div class="line">console.log(curry()(1)(2)(3)) //6</div><div class="line">console.log(curry(1,2,3)) //6</div></pre></td></tr></table></figure>
+<p>试着尝试实现下这个<code>currying</code>函数，我也会给出自己的实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">// es5写法</div><div class="line">function currying(fn) &#123;</div><div class="line">	var args = [].slice.call(arguments, 1);</div><div class="line">	if (args.length &lt; fn.length)&#123;</div><div class="line">		var f = function()&#123;</div><div class="line">			var _args = [].concat.apply(args, arguments);</div><div class="line">			_args.unshift(fn)</div><div class="line">			return currying.apply(null, _args);</div><div class="line">		&#125; </div><div class="line">		return f;</div><div class="line">	&#125;</div><div class="line">	return fn.apply(null, args)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// es6写法</div><div class="line">function currying(fn, ...rest) &#123;</div><div class="line">	if (rest.length &lt; fn.length)&#123;</div><div class="line">		const f = (...args) =&gt; &#123;</div><div class="line">			const _args = rest.concat(args);</div><div class="line">			return currying(fn, ..._args);</div><div class="line">		&#125;</div><div class="line">		return f;</div><div class="line">	&#125;</div><div class="line">	return fn.call(null, ...rest)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后告诉大家一个小秘密，其实函数柯里化最大的作用就是<strong>面试</strong>！</p>
+<h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
+
       
     </div>
 
@@ -468,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -547,6 +588,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是currying？"><span class="nav-number">1.</span> <span class="nav-text">什么是currying？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最后我们用一道题目来结束这个话题。"><span class="nav-number">1.1.</span> <span class="nav-text">最后我们用一道题目来结束这个话题。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">1.2.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

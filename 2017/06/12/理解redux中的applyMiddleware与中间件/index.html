@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="lodash," />
+  <meta name="keywords" content="Hexo, NexT, HM" />
 
 
 
@@ -87,22 +87,20 @@
 
 
 
-<meta name="description" content="什么样的代码算是好代码？读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  
-
-const index = _.findInd">
+<meta name="description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一段基于lodash之看不懂的代码">
-<meta property="og:url" content="http://yoursite.com/2017/05/02/一段基于lodash之看不懂的代码/index.html">
+<meta property="og:title" content="理解redux中的applyMiddleware与中间件">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="什么样的代码算是好代码？读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  
-
-const index = _.findInd">
-<meta property="og:updated_time" content="2017-05-02T09:31:55.000Z">
+<meta property="og:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
+<meta property="og:image" content="http://yoursite.com/images/createStore1.png">
+<meta property="og:image" content="http://yoursite.com/images/applyMiddleware1.png">
+<meta property="og:image" content="http://yoursite.com/images/applyMiddleware2.png">
+<meta property="og:updated_time" content="2017-06-12T03:12:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一段基于lodash之看不懂的代码">
-<meta name="twitter:description" content="什么样的代码算是好代码？读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  
-
-const index = _.findInd">
+<meta name="twitter:title" content="理解redux中的applyMiddleware与中间件">
+<meta name="twitter:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
+<meta name="twitter:image" content="http://yoursite.com/images/createStore1.png">
 
 
 
@@ -130,13 +128,13 @@ const index = _.findInd">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/02/一段基于lodash之看不懂的代码/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/"/>
 
 
 
 
 
-  <title> 一段基于lodash之看不懂的代码 | HM-Blog </title>
+  <title> 理解redux中的applyMiddleware与中间件 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +311,7 @@ const index = _.findInd">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/一段基于lodash之看不懂的代码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -334,7 +332,7 @@ const index = _.findInd">
             
             
               
-                一段基于lodash之看不懂的代码
+                理解redux中的applyMiddleware与中间件
               
             
           </h1>
@@ -349,8 +347,8 @@ const index = _.findInd">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T10:38:10+08:00">
-                2017-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T08:43:59+08:00">
+                2017-06-12
               </time>
             
 
@@ -359,28 +357,6 @@ const index = _.findInd">
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/lodash/" itemprop="url" rel="index">
-                    <span itemprop="name">lodash</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -402,7 +378,7 @@ const index = _.findInd">
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      880字
+                      608字
                     </span>
               
 
@@ -418,7 +394,7 @@ const index = _.findInd">
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      3分钟
+                      2分钟
                     </span>
               
             </div>
@@ -437,21 +413,63 @@ const index = _.findInd">
       
 
       
-        <h3 id="什么样的代码算是好代码？"><a href="#什么样的代码算是好代码？" class="headerlink" title="什么样的代码算是好代码？"></a>什么样的代码算是好代码？</h3><p>读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。<br>事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  </p>
-<blockquote>
-<pre><code>const index = _.findIndex(routes, _.curry(_.isEqual)(action.route))   
-</code></pre></blockquote>
-<p>这是一段路由reducer中的代码，我当然知道findIndex用法，也当然知道返回的是一个index。第一个参数是一个数组，但是第二个参数是什么鬼？<br>如果你一眼就看明白了，那就不用继续看下去了。。可否留个联系方式收我为徒（真心的）。<br>不理解的话，那就和我一样一步一步的来分析下吧。</p>
-<a id="more"></a>  
-<ul>
-<li>首先，findIndex方法，三个参数，第一个是个数组，第二个是个<code>callback</code>。第三个参数是<code>fromIndex</code>，从第几个开始查找，默认是0。第二个参数<code>callback</code>接收三个参数，第一个<code>value</code>，就是遍历到的当前元素，第二个是<code>index</code>，就是遍历时的<code>index</code>，第三个就是<code>this</code>，也就是当前遍历的数组本身。  </li>
-<li>代码中的第一个参数传入了<code>routes</code>,没啥问题，一个路由数组。但是第二个参数就一大堆了，我们把他拿出来拆开看<code>_.curry(_.isEqual)(action.route)</code>。</li>
-<li>curry就不多说了，函数柯里化，不知道的可以看我上一篇文章。但是lodash的<code>curry</code>方法有点不一样。第一个参数接受一个<code>fn</code>，第二个参数是<code>arity</code>，由这个参数决定返回值是<code>fn</code>的结果，还是返回整个<code>fn</code>函数，默认等于第一个参数<code>fn</code>的参数个数。<code>curry</code>传入一个<code>fn</code>返回一个被curry化过的<code>fn</code>，此时在调用这个<code>fn</code>，如果参数传够原来的<code>fn</code>的参数，那么就返回一个<code>fn</code>的返回值。如果参数未传够，那将直接返回<code>fn</code>函数本身。  </li>
-</ul>
-<p>来看个例子就明白了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">_.curry(_.isEqual)  </div><div class="line">function (n,t)&#123;  </div><div class="line">/* [wrapped with _.curry] */  </div><div class="line">return Ft(n,t);  </div><div class="line">&#125;  </div><div class="line">_.curry(_.isEqual)(1)  </div><div class="line">function (n,t)&#123;  </div><div class="line">/* [wrapped with _.curry &amp; _.partial] */  </div><div class="line">return Ft(n,t);  </div><div class="line">&#125;</div><div class="line">_.curry(_.isEqual)(1)(2)  </div><div class="line">false  </div><div class="line">_.curry(_.isEqual)(1)(1)  </div><div class="line">true</div></pre></td></tr></table></figure>
-<p>所以刚好<code>_.curry(_.isEqual)(action.route)</code>返回的还是<code>isEqual</code>函数自身，<code>isEqual</code>接受两个参数（a,b），返回一个布尔值。抛开它的实现不说，其他内部最终肯定是<code>return a === b</code>类似这样。<br>回到<code>findIndex</code>的第二个参数，要的是个<code>fn</code>，正好<code>_.curry(_.isEqual)(action.route)</code>返回的是<code>isEqual</code>这个函数，而<code>action.route</code>恰恰带入函数的第一个参数a,那第二个参数？<code>isEqual</code>第二个参数b其实就是遍历<code>routes</code>时的每一项，<code>isEqual</code>的逻辑就成了<code>return routes[i] === action.route</code>，这样一来，就达到了我们的目的。  </p>
-<p>题外话，其实这段代码也可以写成下面这样：<br><code>const index = _.findIndex(routes, route =&gt; route === action.route)</code><br>但是放眼望去，第一种写法才是符合fp的编程思想，而且也成功装X，岂不快哉！ </p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
+<a id="more"></a>
+<pre><code class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params"></span>) </span>{
+  <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, middlewares = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) {
+    middlewares[_key] = <span class="built_in">arguments</span>[_key];
+  }
+
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">createStore</span>) </span>{
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">reducer, preloadedState, enhancer</span>) </span>{
+      <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer);
+      <span class="keyword">var</span> _dispatch = store.dispatch;
+      <span class="keyword">var</span> chain = [];
+
+      <span class="keyword">var</span> middlewareAPI = {
+        <span class="attr">getState</span>: store.getState,
+        <span class="attr">dispatch</span>: <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>) </span>{
+          <span class="keyword">return</span> _dispatch(action);
+        }
+      };
+      chain = middlewares.map(<span class="function"><span class="keyword">function</span> (<span class="params">middleware</span>) </span>{
+        <span class="keyword">return</span> middleware(middlewareAPI);
+      });
+      _dispatch = compose.apply(<span class="literal">undefined</span>, chain)(store.dispatch);
+
+      <span class="keyword">return</span> _extends({}, store, {
+        <span class="attr">dispatch</span>: _dispatch
+      });
+    };
+  };
+}
+</code></pre>
+<p>精简的30行代码，设计思想强无敌。不难看出applyMiddleware这个函数接收一个createStore函数返回一个接收参数和createStore一样的函数。如下图是createStore的部分源码：<br><img src="/images/createStore1.png"><br>enhancer就是applyMiddleware执行完第一层后的函数，传一个createStore函数，再次返回一个函数，但此时只传外层的reducer和preloadedState，却没在传第三个enhancer参数。这里要看回到applyMiddleware函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到applyMiddleware内部还调用了createStore，整个一个完整的逻辑如下（部分重要代码）：  </p>
+<p><code>首先是调用createStore，这个enhancer其实就是applyMiddleware(middleware1, middleware2)。</code>  </p>
+<pre><code class="javascript"><span class="keyword">const</span> store = createStore(
+    reducer,
+    <span class="literal">undefined</span>,
+    enhancer
+  )
+</code></pre>
+<p><code>其次是createStore里判断执行enhancer，如果传了enhancer，那就对enhancer执行再执行，且第二次执行不传enhancer，这里return的其实也是applyMiddleware函数的返回值，但是等下在applyMiddleware里还会在执行一次createStore。</code>  </p>
+<pre><code class="javascript"><span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'undefined'</span>) {
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'function'</span>) {
+      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected the enhancer to be a function.'</span>);
+    }
+
+    <span class="keyword">return</span> enhancer(createStore)(reducer, preloadedState);
+  }
+</code></pre>
+<p><code>最后是applyMiddleware里的，由于createStore上面最后一次执行未传enhancer，所以applyMiddleware里的createStore是不会再次执行enhancer,不然就死循环了。拿到返回的sotre对象，重新改造dispatch并返回，这就是中间件的实现的一个大体流程。</code></p>
+<pre><code class="javascript"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">createStore</span>) </span>{
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">reducer, preloadedState, enhancer</span>) </span>{
+    <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer);
+    <span class="comment">//省略一万行</span>
+  }
+}
+</code></pre>
+<p>至此，相信大家也差不多理解了createStore和applyMiddleware相互之间的关系了，其实关于中间件为什么嵌套三层的问题也自然而然的解开了，一张图片来说明吧。<br><img src="/images/applyMiddleware2.png"></p>
 <h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
 
       
@@ -474,12 +492,6 @@ const index = _.findInd">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/lodash/" rel="tag"># lodash</a>
-          
-        </div>
-      
 
       
         
@@ -489,8 +501,8 @@ const index = _.findInd">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/29/javascript中的callee、caller、call、apply、bind的用法与区别/" rel="next" title="javascript中的callee、caller、call、apply、bind的用法与区别">
-                <i class="fa fa-chevron-left"></i> javascript中的callee、caller、call、apply、bind的用法与区别
+              <a href="/2017/05/11/前端面试题/" rel="next" title="前端面试题">
+                <i class="fa fa-chevron-left"></i> 前端面试题
               </a>
             
           </div>
@@ -498,10 +510,6 @@ const index = _.findInd">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/11/前端面试题/" rel="prev" title="前端面试题">
-                前端面试题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +656,7 @@ const index = _.findInd">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么样的代码算是好代码？"><span class="nav-number">1.</span> <span class="nav-text">什么样的代码算是好代码？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">1.1.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">2.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
             
 
           </div>

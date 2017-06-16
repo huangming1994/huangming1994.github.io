@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/images/createStore1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware2.png">
-<meta property="og:updated_time" content="2017-06-12T03:12:49.000Z">
+<meta property="og:updated_time" content="2017-06-12T03:38:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解redux中的applyMiddleware与中间件">
 <meta name="twitter:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
@@ -413,7 +413,7 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
 <a id="more"></a>
 <pre><code class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params"></span>) </span>{
   <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, middlewares = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) {
@@ -511,6 +511,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/06/16/Object.assign与rest的区别/" rel="prev" title="Object.assign与rest的区别">
+                Object.assign与rest的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -581,7 +585,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

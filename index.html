@@ -610,7 +610,7 @@
 
       
         
-          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服<code>redux</code>的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解<code>applyMiddleware</code>，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/12/理解redux中的applyMiddleware与中间件/#more" rel="contents">
@@ -940,7 +940,7 @@
 <blockquote>
 <pre><code>const index = _.findIndex(routes, _.curry(_.isEqual)(action.route))   
 </code></pre></blockquote>
-<p>这是一段路由reducer中的代码，我当然知道findIndex用法，也当然知道返回的是一个index。第一个参数是一个数组，但是第二个参数是什么鬼？<br>如果你一眼就看明白了，那就不用继续看下去了。。可否留个联系方式收我为徒（真心的）。<br>不理解的话，那就和我一样一步一步的来分析下吧。</p>
+<p>这是一段路由reducer中的代码，我当然知道<code>findIndex用法，也当然知道返回的是一个</code>index`。第一个参数是一个数组，但是第二个参数是什么鬼？<br>如果你一眼就看明白了，那就不用继续看下去了。。可否留个联系方式收我为徒（真心的）。<br>不理解的话，那就和我一样一步一步的来分析下吧。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/02/一段基于lodash之看不懂的代码/#more" rel="contents">
@@ -1438,7 +1438,7 @@
 
       
         
-          <p>4月的上海，居然有30°的高温，果然是一个没有春天的城市。这样的高温下怎么能静得下心撸码呢，刚看过的内容转头就忘了，那就让我们一起来复习下redux中的compose到底是怎么工作的!</p>
+          <p>4月的上海，居然有30°的高温，果然是一个没有春天的城市。这样的高温下怎么能静得下心撸码呢，刚看过的内容转头就忘了，那就让我们一起来复习下<code>redux</code>中的<code>compose</code>到底是怎么工作的!</p>
 <h4 id="话不多说，上源码！下面是compose源码的es5写法"><a href="#话不多说，上源码！下面是compose源码的es5写法" class="headerlink" title="话不多说，上源码！下面是compose源码的es5写法"></a>话不多说，上源码！下面是compose源码的es5写法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, funcs = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) &#123;</div><div class="line">    funcs[_key] = <span class="built_in">arguments</span>[_key];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> arg;</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">1</span>) &#123;</div><div class="line">    <span class="keyword">return</span> funcs[<span class="number">0</span>];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> last = funcs[funcs.length - <span class="number">1</span>];</div><div class="line">  <span class="keyword">var</span> rest = funcs.slice(<span class="number">0</span>, <span class="number">-1</span>);</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> rest.reduceRight(<span class="function"><span class="keyword">function</span> (<span class="params">composed, f</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> f(composed);</div><div class="line">    &#125;, last.apply(<span class="literal">undefined</span>, <span class="built_in">arguments</span>));</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">

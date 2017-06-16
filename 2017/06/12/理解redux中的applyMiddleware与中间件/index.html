@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/images/createStore1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware2.png">
-<meta property="og:updated_time" content="2017-06-16T05:44:12.000Z">
+<meta property="og:updated_time" content="2017-06-16T06:24:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解redux中的applyMiddleware与中间件">
 <meta name="twitter:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
@@ -435,7 +435,7 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服<code>redux</code>的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解<code>applyMiddleware</code>，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
 <a id="more"></a>
 <pre><code class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params"></span>) </span>{
   <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, middlewares = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) {
@@ -466,7 +466,7 @@
   };
 }
 </code></pre>
-<p>精简的30行代码，设计思想强无敌。不难看出applyMiddleware这个函数接收一个createStore函数返回一个接收参数和createStore一样的函数。如下图是createStore的部分源码：<br><img src="/images/createStore1.png"><br>enhancer就是applyMiddleware执行完第一层后的函数，传一个createStore函数，再次返回一个函数，但此时只传外层的reducer和preloadedState，却没在传第三个enhancer参数。这里要看回到applyMiddleware函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到applyMiddleware内部还调用了createStore，整个一个完整的逻辑如下（部分重要代码）：  </p>
+<p>精简的30行代码，设计思想强无敌。不难看出<code>applyMiddleware</code>这个函数接收一个<code>createStore</code>函数返回一个接收参数和<code>createStore</code>一样的函数。如下图是<code>createStore</code>的部分源码：<br><img src="/images/createStore1.png"><br><code>enhancer</code>就是<code>applyMiddleware</code>执行完第一层后的函数，传一个<code>createStore</code>函数，再次返回一个函数，但此时只传外层的<code>reducer</code>和<code>preloadedState</code>，却没在传第三个<code>enhancer</code>参数。这里要看回到<code>applyMiddleware</code>函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到<code>applyMiddleware</code>内部还调用了<code>createStore</code>，整个一个完整的逻辑如下（部分重要代码）：  </p>
 <p><code>首先是调用createStore，这个enhancer其实就是applyMiddleware(middleware1, middleware2)。</code>  </p>
 <pre><code class="javascript"><span class="keyword">const</span> store = createStore(
     reducer,
@@ -491,7 +491,7 @@
   }
 }
 </code></pre>
-<p>至此，相信大家也差不多理解了createStore和applyMiddleware相互之间的关系了，其实关于中间件为什么嵌套三层的问题也自然而然的解开了，一张图片来说明吧。<br><img src="/images/applyMiddleware2.png"></p>
+<p>至此，相信大家也差不多理解了<code>createStore</code>和<code>applyMiddleware</code>相互之间的关系了，其实关于中间件为什么嵌套三层的问题也自然而然的解开了，一张图片来说明吧。<br><img src="/images/applyMiddleware2.png"></p>
 <h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
 
       

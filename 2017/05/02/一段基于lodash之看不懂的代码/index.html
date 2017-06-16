@@ -97,7 +97,7 @@ const index = _.findInd">
 <meta property="og:description" content="什么样的代码算是好代码？读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  
 
 const index = _.findInd">
-<meta property="og:updated_time" content="2017-05-02T09:31:55.000Z">
+<meta property="og:updated_time" content="2017-06-16T06:26:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一段基于lodash之看不懂的代码">
 <meta name="twitter:description" content="什么样的代码算是好代码？读得懂的就是好代码，讲究一个可读性（其实是想掩饰我的菜而已，嘘。。），不过确实也要考虑代码设计，扩展性各方面。事情的缘故源于项目中的一段代码，第一眼看，What the hell，这是啥！第二遍看，excuse me？？？第三第四遍，哦~有点理解了，第五遍，还是不懂。。下面上代码（由于项目原因，并非项目中真实代码片段）。  
@@ -441,10 +441,10 @@ const index = _.findInd">
 <blockquote>
 <pre><code>const index = _.findIndex(routes, _.curry(_.isEqual)(action.route))   
 </code></pre></blockquote>
-<p>这是一段路由reducer中的代码，我当然知道findIndex用法，也当然知道返回的是一个index。第一个参数是一个数组，但是第二个参数是什么鬼？<br>如果你一眼就看明白了，那就不用继续看下去了。。可否留个联系方式收我为徒（真心的）。<br>不理解的话，那就和我一样一步一步的来分析下吧。</p>
+<p>这是一段路由reducer中的代码，我当然知道<code>findIndex用法，也当然知道返回的是一个</code>index`。第一个参数是一个数组，但是第二个参数是什么鬼？<br>如果你一眼就看明白了，那就不用继续看下去了。。可否留个联系方式收我为徒（真心的）。<br>不理解的话，那就和我一样一步一步的来分析下吧。</p>
 <a id="more"></a>  
 <ul>
-<li>首先，findIndex方法，三个参数，第一个是个数组，第二个是个<code>callback</code>。第三个参数是<code>fromIndex</code>，从第几个开始查找，默认是0。第二个参数<code>callback</code>接收三个参数，第一个<code>value</code>，就是遍历到的当前元素，第二个是<code>index</code>，就是遍历时的<code>index</code>，第三个就是<code>this</code>，也就是当前遍历的数组本身。  </li>
+<li>首先，<code>findIndex</code>方法，三个参数，第一个是个数组，第二个是个<code>callback</code>。第三个参数是<code>fromIndex</code>，从第几个开始查找，默认是0。第二个参数<code>callback</code>接收三个参数，第一个<code>value</code>，就是遍历到的当前元素，第二个是<code>index</code>，就是遍历时的<code>index</code>，第三个就是<code>this</code>，也就是当前遍历的数组本身。  </li>
 <li>代码中的第一个参数传入了<code>routes</code>,没啥问题，一个路由数组。但是第二个参数就一大堆了，我们把他拿出来拆开看<code>_.curry(_.isEqual)(action.route)</code>。</li>
 <li>curry就不多说了，函数柯里化，不知道的可以看我上一篇文章。但是lodash的<code>curry</code>方法有点不一样。第一个参数接受一个<code>fn</code>，第二个参数是<code>arity</code>，由这个参数决定返回值是<code>fn</code>的结果，还是返回整个<code>fn</code>函数，默认等于第一个参数<code>fn</code>的参数个数。<code>curry</code>传入一个<code>fn</code>返回一个被curry化过的<code>fn</code>，此时在调用这个<code>fn</code>，如果参数传够原来的<code>fn</code>的参数，那么就返回一个<code>fn</code>的返回值。如果参数未传够，那将直接返回<code>fn</code>函数本身。  </li>
 </ul>

@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
+<meta name="description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，Spread返回的是个新对象。然后和同事">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object.assign与rest的区别">
+<meta property="og:title" content="Object.assign与Spread的区别">
 <meta property="og:url" content="http://yoursite.com/2017/06/16/Object.assign与Spread的区别/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
+<meta property="og:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，Spread返回的是个新对象。然后和同事">
 <meta property="og:image" content="http://yoursite.com/images/object_assign1.png">
 <meta property="og:image" content="http://yoursite.com/images/object_assign2.png">
 <meta property="og:image" content="http://yoursite.com/images/spread1.png">
 <meta property="og:image" content="http://yoursite.com/images/spread2.png">
-<meta property="og:updated_time" content="2017-06-16T05:43:32.000Z">
+<meta property="og:updated_time" content="2017-06-16T05:50:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object.assign与rest的区别">
-<meta name="twitter:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
+<meta name="twitter:title" content="Object.assign与Spread的区别">
+<meta name="twitter:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，Spread返回的是个新对象。然后和同事">
 <meta name="twitter:image" content="http://yoursite.com/images/object_assign1.png">
 
 
@@ -135,7 +135,7 @@
 
 
 
-  <title> Object.assign与rest的区别 | HM-Blog </title>
+  <title> Object.assign与Spread的区别 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +333,7 @@
             
             
               
-                Object.assign与rest的区别
+                Object.assign与Spread的区别
               
             
           </h1>
@@ -436,7 +436,7 @@
       
 
       
-        <h4 id="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。"><a href="#接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。" class="headerlink" title="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。"></a>接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，<code>Object.assign()</code>和<code>... Spread</code>展开符。而我一般都是后者，说实话前者根本没用过。。</h4><p>今天同事问我<code>Object.assign</code>是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用<code>Spread</code>的时候是说可以代替<code>Object.assign</code>，<code>rest</code>返回的是个新对象。然后和同事说我也不知道，我去看下，于是就有了下面一幕。</p>
+        <h4 id="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。"><a href="#接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。" class="headerlink" title="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。"></a>接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，<code>Object.assign()</code>和<code>... Spread</code>展开符。而我一般都是后者，说实话前者根本没用过。。</h4><p>今天同事问我<code>Object.assign</code>是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用<code>Spread</code>的时候是说可以代替<code>Object.assign</code>，<code>Spread</code>返回的是个新对象。然后和同事说我也不知道，我去看下，于是就有了下面一幕。</p>
 <a id="more"></a>
 <p>看了下，<code>Object.assign</code>确实是浅拷贝，具体可以看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">这里</a>。<br>在控制台中试了几个例子，看起来会更直观。</p>
 <p><img src="/images/object_assign1.png" width="300"></p>
@@ -585,7 +585,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

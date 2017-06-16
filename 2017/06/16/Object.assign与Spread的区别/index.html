@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="applyMiddleware," />
+  <meta name="keywords" content="Object.assign,Spread," />
 
 
 
@@ -87,20 +87,21 @@
 
 
 
-<meta name="description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
+<meta name="description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解redux中的applyMiddleware与中间件">
-<meta property="og:url" content="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/index.html">
+<meta property="og:title" content="Object.assign与rest的区别">
+<meta property="og:url" content="http://yoursite.com/2017/06/16/Object.assign与Spread的区别/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
-<meta property="og:image" content="http://yoursite.com/images/createStore1.png">
-<meta property="og:image" content="http://yoursite.com/images/applyMiddleware1.png">
-<meta property="og:image" content="http://yoursite.com/images/applyMiddleware2.png">
-<meta property="og:updated_time" content="2017-06-16T05:44:12.000Z">
+<meta property="og:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
+<meta property="og:image" content="http://yoursite.com/images/object_assign1.png">
+<meta property="og:image" content="http://yoursite.com/images/object_assign2.png">
+<meta property="og:image" content="http://yoursite.com/images/spread1.png">
+<meta property="og:image" content="http://yoursite.com/images/spread2.png">
+<meta property="og:updated_time" content="2017-06-16T05:43:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解redux中的applyMiddleware与中间件">
-<meta name="twitter:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
-<meta name="twitter:image" content="http://yoursite.com/images/createStore1.png">
+<meta name="twitter:title" content="Object.assign与rest的区别">
+<meta name="twitter:description" content="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。今天同事问我Object.assign是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用Spread的时候是说可以代替Object.assign，rest返回的是个新对象。然后和同事说我">
+<meta name="twitter:image" content="http://yoursite.com/images/object_assign1.png">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/16/Object.assign与Spread的区别/"/>
 
 
 
 
 
-  <title> 理解redux中的applyMiddleware与中间件 | HM-Blog </title>
+  <title> Object.assign与rest的区别 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/理解redux中的applyMiddleware与中间件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/Object.assign与Spread的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -332,7 +333,7 @@
             
             
               
-                理解redux中的applyMiddleware与中间件
+                Object.assign与rest的区别
               
             
           </h1>
@@ -347,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T08:43:59+08:00">
-                2017-06-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T12:33:55+08:00">
+                2017-06-16
               </time>
             
 
@@ -400,7 +401,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      608字
+                      568字
                     </span>
               
 
@@ -435,63 +436,18 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>不得不佩服redux的作者<code>Dan Abramov</code>，看完<code>applyMiddleware</code>的源码,我的感受就是：还有这种操作？<br>与其说是理解applyMiddleware，不如说是理清<code>createStore</code>，<code>applyMiddleware</code>和一些中间件的关系，和为什么中间件都是<code>export const createThunkMiddleware = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {...}</code>三层嵌套关系。  </p>
+        <h4 id="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。"><a href="#接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。" class="headerlink" title="接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。"></a>接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，<code>Object.assign()</code>和<code>... Spread</code>展开符。而我一般都是后者，说实话前者根本没用过。。</h4><p>今天同事问我<code>Object.assign</code>是浅拷贝还是深拷贝，讲道理我是真不知道。。其实脑子是偏向说深拷贝的，因为之前用<code>Spread</code>的时候是说可以代替<code>Object.assign</code>，<code>rest</code>返回的是个新对象。然后和同事说我也不知道，我去看下，于是就有了下面一幕。</p>
 <a id="more"></a>
-<pre><code class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params"></span>) </span>{
-  <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, middlewares = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) {
-    middlewares[_key] = <span class="built_in">arguments</span>[_key];
-  }
-
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">createStore</span>) </span>{
-    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">reducer, preloadedState, enhancer</span>) </span>{
-      <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer);
-      <span class="keyword">var</span> _dispatch = store.dispatch;
-      <span class="keyword">var</span> chain = [];
-
-      <span class="keyword">var</span> middlewareAPI = {
-        <span class="attr">getState</span>: store.getState,
-        <span class="attr">dispatch</span>: <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>) </span>{
-          <span class="keyword">return</span> _dispatch(action);
-        }
-      };
-      chain = middlewares.map(<span class="function"><span class="keyword">function</span> (<span class="params">middleware</span>) </span>{
-        <span class="keyword">return</span> middleware(middlewareAPI);
-      });
-      _dispatch = compose.apply(<span class="literal">undefined</span>, chain)(store.dispatch);
-
-      <span class="keyword">return</span> _extends({}, store, {
-        <span class="attr">dispatch</span>: _dispatch
-      });
-    };
-  };
-}
-</code></pre>
-<p>精简的30行代码，设计思想强无敌。不难看出applyMiddleware这个函数接收一个createStore函数返回一个接收参数和createStore一样的函数。如下图是createStore的部分源码：<br><img src="/images/createStore1.png"><br>enhancer就是applyMiddleware执行完第一层后的函数，传一个createStore函数，再次返回一个函数，但此时只传外层的reducer和preloadedState，却没在传第三个enhancer参数。这里要看回到applyMiddleware函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到applyMiddleware内部还调用了createStore，整个一个完整的逻辑如下（部分重要代码）：  </p>
-<p><code>首先是调用createStore，这个enhancer其实就是applyMiddleware(middleware1, middleware2)。</code>  </p>
-<pre><code class="javascript"><span class="keyword">const</span> store = createStore(
-    reducer,
-    <span class="literal">undefined</span>,
-    enhancer
-  )
-</code></pre>
-<p><code>其次是createStore里判断执行enhancer，如果传了enhancer，那就对enhancer执行再执行，且第二次执行不传enhancer，这里return的其实也是applyMiddleware函数的返回值，但是等下在applyMiddleware里还会在执行一次createStore。</code>  </p>
-<pre><code class="javascript"><span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'undefined'</span>) {
-    <span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'function'</span>) {
-      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected the enhancer to be a function.'</span>);
-    }
-
-    <span class="keyword">return</span> enhancer(createStore)(reducer, preloadedState);
-  }
-</code></pre>
-<p><code>最后是applyMiddleware里的，由于createStore上面最后一次执行未传enhancer，所以applyMiddleware里的createStore是不会再次执行enhancer,不然就死循环了。拿到返回的sotre对象，重新改造dispatch并返回，这就是中间件的实现的一个大体流程。</code></p>
-<pre><code class="javascript"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">createStore</span>) </span>{
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">reducer, preloadedState, enhancer</span>) </span>{
-    <span class="keyword">var</span> store = createStore(reducer, preloadedState, enhancer);
-    <span class="comment">//省略一万行</span>
-  }
-}
-</code></pre>
-<p>至此，相信大家也差不多理解了createStore和applyMiddleware相互之间的关系了，其实关于中间件为什么嵌套三层的问题也自然而然的解开了，一张图片来说明吧。<br><img src="/images/applyMiddleware2.png"></p>
+<p>看了下，<code>Object.assign</code>确实是浅拷贝，具体可以看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">这里</a>。<br>在控制台中试了几个例子，看起来会更直观。</p>
+<p><img src="/images/object_assign1.png" width="300"></p>
+<p>可以看到这里正因为<code>object.assign</code>本身是浅拷贝，所以第一个<code>source</code>参数传的是个空对象，所以拷贝的对象并不是引用，改变了<code>j1</code>，拷贝出来的<code>j2</code>对象仍不变。</p>
+<p><img src="/images/object_assign2.png"></p>
+<p>但是这里可以看到，如果源对象的属性对应的值还是个对象的时候，就会出现值拷贝，指针还是同一个的问题，改变了<code>g</code>对象，源对象<code>a</code>也受影响了，但是通过<code>JSON.parse(JSON.stringify(a))</code>拷贝出来的对象却不会受影响，所以当你使用<code>Object.assign</code>的时候，要注意这一点。</p>
+<p><img src="/images/spread1.png" width="300"></p>
+<p>这里用数组代替对象是因为浏览器还不支持这个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">es7特性</a>，包括最新的<code>node v8.0</code>也还不支持，我也很无奈。。不过数组对象都是引用类型，用来测试都一样。当元素是基本类型时，和<code>Object.assign</code>也一样，没有问题。</p>
+<p><img src="/images/spread2.png" width="300"></p>
+<p>接下来，看一下当源数组的元素还是数组时，看下会不会有问题。很明显，不管怎么玩，<code>Spread</code>展开符永远拿到都是新的对象，不存在值引用。</p>
+<p>总结下来就是，没用过的东西确实有必要了解，不应该说不用就不需要知道。不过写<code>redux</code>的兄弟们还是用<code>Spread</code>吧。。</p>
 <h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
 
       
@@ -516,7 +472,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/applyMiddleware/" rel="tag"># applyMiddleware</a>
+            <a href="/tags/Object-assign/" rel="tag"># Object.assign</a>
+          
+            <a href="/tags/Spread/" rel="tag"># Spread</a>
           
         </div>
       
@@ -529,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/11/前端面试题/" rel="next" title="前端面试题">
-                <i class="fa fa-chevron-left"></i> 前端面试题
+              <a href="/2017/06/12/理解redux中的applyMiddleware与中间件/" rel="next" title="理解redux中的applyMiddleware与中间件">
+                <i class="fa fa-chevron-left"></i> 理解redux中的applyMiddleware与中间件
               </a>
             
           </div>
@@ -538,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/16/Object.assign与Spread的区别/" rel="prev" title="Object.assign与rest的区别">
-                Object.assign与rest的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">2.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object-assign-和-Spread展开符。而我一般都是后者，说实话前者根本没用过。。"><span class="nav-number">1.</span> <span class="nav-text">接触过react的都知道，redux当中reducer对对象合并的时候，有两种写法，Object.assign()和... Spread展开符。而我一般都是后者，说实话前者根本没用过。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">2.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
             
 
           </div>

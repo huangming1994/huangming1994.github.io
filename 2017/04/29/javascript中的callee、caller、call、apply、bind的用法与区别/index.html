@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/29/javascript中的callee、caller、call、apply、bind的用法与区别/index.html">
 <meta property="og:site_name" content="HM-Blog">
 <meta property="og:description" content="说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。">
-<meta property="og:updated_time" content="2017-06-19T15:23:45.000Z">
+<meta property="og:updated_time" content="2017-06-19T15:30:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript中的callee、caller、call、apply、bind的用法与区别">
 <meta name="twitter:description" content="说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。">
@@ -396,7 +396,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      885字
+                      883字
                     </span>
               
 
@@ -412,7 +412,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      4分钟
+                      3分钟
                     </span>
               
             </div>
@@ -431,7 +431,8 @@
       
 
       
-        <h4 id="说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。"><a href="#说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。" class="headerlink" title="说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。"></a>说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。</h4><a id="more"></a>
+        <p>说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。</p>
+<a id="more"></a>
 <h3 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h3><blockquote>
 <p>返回正被执行的 Function 对象，也就是所指定的 Function 对象的正文。</p>
 </blockquote>
@@ -441,12 +442,20 @@
 <p>caller返回一个对函数的引用，该函数调用了当前函数。<br>对于函数来说，caller 属性只有在函数执行时才有定义。 如果函数是由 Javascript 程序的顶层调用的，那么 caller 包含的就是 null 。</p>
 </blockquote>
 <p><code>caller</code>就是返回当前函数的调用者，可以理解为它是被哪个函数内部调用的，那么返回的就是那个调用者的函数本身，常用的有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function callerDemo() &#123;</div><div class="line">    console.log(arguments.callee.caller)</div><div class="line">&#125;</div><div class="line"></div><div class="line">callerDemo() // null</div><div class="line">function handleCaller() &#123;</div><div class="line">    callerDemo();</div><div class="line">&#125;</div><div class="line">handleCaller()   // function handleCaller() &#123; callerDemo() &#125;</div><div class="line">``` </div><div class="line">&lt;p style=&quot;color:red;&quot;&gt;需要注意的是： 在严格模式下，callee，caller都是禁止使用的，包括arguments也有部分限制。&lt;/p&gt;</div></pre></td></tr></table></figure>
-<p>function callerDemo(){<br>    “use strict”<br>    console.log(arguments.callee.caller)<br>}</p>
-<p>foo()<br>VM340:3 Uncaught TypeError: ‘caller’, ‘callee’, and ‘arguments’ properties may not be accessed on strict mode functions or the arguments objects for calls to them<br>    at callerDemo (<anonymous>:3:23)<br>    at <anonymous>:1:1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### call</div><div class="line">&gt; call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。</div><div class="line"></div><div class="line">`call()`方法就是用来改变上下文，也就是`this`对象，该方法的作用和 `apply()` 方法类似，只有一个区别，就是`call()`方法接受的是若干个参数的列表，而`apply()`方法接受的是一个包含多个参数的数组。常见的用法有：</div></pre></td></tr></table></figure></anonymous></anonymous></p>
-<p>[].slice.call(arguments) // 实参转换数组 方便后续调用数组的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### apply</div><div class="line">&gt; apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数。</div><div class="line"></div><div class="line">`apply()`方法也是改变上下文，第一个参数同为`this`对象，剩下的参数和`call()`相反，`apply()`接受一个数组。常见的用法有：</div></pre></td></tr></table></figure></p>
-<p>Math.max.apply([1,2,3])  // 3 求最大值<br>Math.min.apply([1,2,3])  // 1 求最小值</p>
-<p>var arr1 = [1,2,3], arr2 = [4,5]<br>Array.prototype.push.apply(arr1, arr2)<br>console.log(arr1)  // [1,2,3,4,5]  push一整个数组<br>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function callerDemo() &#123;</div><div class="line">    console.log(arguments.callee.caller)</div><div class="line">&#125;</div><div class="line"></div><div class="line">callerDemo() // null</div><div class="line">function handleCaller() &#123;</div><div class="line">    callerDemo();</div><div class="line">&#125;</div><div class="line">handleCaller()   // function handleCaller() &#123; callerDemo() &#125;</div></pre></td></tr></table></figure>
+<p style="color:red;">需要注意的是： 在严格模式下，callee，caller都是禁止使用的，包括arguments也有部分限制。</p>  
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function callerDemo()&#123;</div><div class="line">	&quot;use strict&quot;</div><div class="line">	console.log(arguments.callee.caller)</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo()</div><div class="line">VM340:3 Uncaught TypeError: &apos;caller&apos;, &apos;callee&apos;, and &apos;arguments&apos; properties may not be accessed on strict mode functions or the arguments objects for calls to them</div><div class="line">    at callerDemo (&lt;anonymous&gt;:3:23)</div><div class="line">    at &lt;anonymous&gt;:1:1</div></pre></td></tr></table></figure>
+<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><blockquote>
+<p>call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。</p>
+</blockquote>
+<p><code>call()</code>方法就是用来改变上下文，也就是<code>this</code>对象，该方法的作用和 <code>apply()</code> 方法类似，只有一个区别，就是<code>call()</code>方法接受的是若干个参数的列表，而<code>apply()</code>方法接受的是一个包含多个参数的数组。常见的用法有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[].slice.call(arguments) // 实参转换数组 方便后续调用数组的方法</div></pre></td></tr></table></figure>
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><blockquote>
+<p>apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数。</p>
+</blockquote>
+<p><code>apply()</code>方法也是改变上下文，第一个参数同为<code>this</code>对象，剩下的参数和<code>call()</code>相反，<code>apply()</code>接受一个数组。常见的用法有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Math.max.apply([1,2,3])  // 3 求最大值</div><div class="line">Math.min.apply([1,2,3])  // 1 求最小值</div><div class="line"></div><div class="line">var arr1 = [1,2,3], arr2 = [4,5]</div><div class="line">Array.prototype.push.apply(arr1, arr2)</div><div class="line">console.log(arr1)  // [1,2,3,4,5]  push一整个数组</div></pre></td></tr></table></figure>
 <h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><blockquote>
 <p>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。</p>
 </blockquote>
@@ -665,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。"><span class="nav-number">1.</span> <span class="nav-text">说实话，这些在平日开发用的真不是很多，一般都是面试会碰到，不过肯定也要去了解和知道，这里就简单的讲下其中的一些技巧型用法和区别。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#callee"><span class="nav-number"></span> <span class="nav-text">callee</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#caller"><span class="nav-number"></span> <span class="nav-text">caller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number"></span> <span class="nav-text">bind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">1.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#callee"><span class="nav-number">1.</span> <span class="nav-text">callee</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#caller"><span class="nav-number">2.</span> <span class="nav-text">caller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">3.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">4.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number">5.</span> <span class="nav-text">bind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">5.1.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></li></ol></div>
             
 
           </div>

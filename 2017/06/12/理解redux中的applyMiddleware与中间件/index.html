@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/images/createStore1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware1.png">
 <meta property="og:image" content="http://yoursite.com/images/applyMiddleware2.png">
-<meta property="og:updated_time" content="2017-06-16T06:24:16.000Z">
+<meta property="og:updated_time" content="2017-07-04T10:57:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解redux中的applyMiddleware与中间件">
 <meta name="twitter:description" content="前言不得不佩服redux的作者Dan Abramov，看完applyMiddleware的源码,我的感受就是：还有这种操作？与其说是理解applyMiddleware，不如说是理清createStore，applyMiddleware和一些中间件的关系，和为什么中间件都是export const createThunkMiddleware = ({ dispatch, getState }) =&amp;">
@@ -466,7 +466,7 @@
   };
 }
 </code></pre>
-<p>精简的30行代码，设计思想强无敌。不难看出<code>applyMiddleware</code>这个函数接收一个<code>createStore</code>函数返回一个接收参数和<code>createStore</code>一样的函数。如下图是<code>createStore</code>的部分源码：<br><img src="/images/createStore1.png"><br><code>enhancer</code>就是<code>applyMiddleware</code>执行完第一层后的函数，传一个<code>createStore</code>函数，再次返回一个函数，但此时只传外层的<code>reducer</code>和<code>preloadedState</code>，却没在传第三个<code>enhancer</code>参数。这里要看回到<code>applyMiddleware</code>函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到<code>applyMiddleware</code>内部还调用了<code>createStore</code>，整个一个完整的逻辑如下（部分重要代码）：  </p>
+<p>精简的30行代码，设计思想强无敌。<code>applyMiddleware</code>这个函数接收一个中间件数组，返回一个接收参数和<code>createStore</code>一样的函数。如下图是<code>createStore</code>的部分源码：<br><img src="/images/createStore1.png"><br><code>enhancer</code>就是<code>applyMiddleware</code>执行完第一层后的函数，传一个<code>createStore</code>函数，再次返回一个函数，但此时只传外层的<code>reducer</code>和<code>preloadedState</code>，却没在传第三个<code>enhancer</code>参数。这里要看回到<code>applyMiddleware</code>函数<br><img src="/images/applyMiddleware1.png"><br>两层形参对应上面的实参，可以看到<code>applyMiddleware</code>内部还调用了<code>createStore</code>，整个一个完整的逻辑如下（部分重要代码）：  </p>
 <p><code>首先是调用createStore，这个enhancer其实就是applyMiddleware(middleware1, middleware2)。</code>  </p>
 <pre><code class="javascript"><span class="keyword">const</span> store = createStore(
     reducer,
@@ -613,7 +613,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -631,7 +631,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

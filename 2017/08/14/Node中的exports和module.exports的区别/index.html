@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, HM" />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -87,19 +87,22 @@
 
 
 
-<meta name="description" content="这是标题百度
-1234567891011121314props: &amp;#123;   toggleSlider: () =&amp;gt; void,   selectTab: () =&amp;gt; void,   displayTabBar: () =&amp;gt; void,   isDisplayTabBar: boolean,   selectedTab: number,   hasAllRead: bool">
+<meta name="description" content="在Node中，采用CommonJS模块规范。 什么是CommonJS规范？ 
+
+CommonJS 规范是为了解决 JavaScript 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二篇文章">
-<meta property="og:url" content="http://yoursite.com/2017/02/25/第二篇文章/index.html">
+<meta property="og:title" content="Node中的exports和module.exports的区别">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/Node中的exports和module.exports的区别/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="这是标题百度
-1234567891011121314props: &amp;#123;   toggleSlider: () =&amp;gt; void,   selectTab: () =&amp;gt; void,   displayTabBar: () =&amp;gt; void,   isDisplayTabBar: boolean,   selectedTab: number,   hasAllRead: bool">
-<meta property="og:updated_time" content="2017-04-19T02:50:47.000Z">
+<meta property="og:description" content="在Node中，采用CommonJS模块规范。 什么是CommonJS规范？ 
+
+CommonJS 规范是为了解决 JavaScript 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。">
+<meta property="og:updated_time" content="2017-08-15T00:54:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第二篇文章">
-<meta name="twitter:description" content="这是标题百度
-1234567891011121314props: &amp;#123;   toggleSlider: () =&amp;gt; void,   selectTab: () =&amp;gt; void,   displayTabBar: () =&amp;gt; void,   isDisplayTabBar: boolean,   selectedTab: number,   hasAllRead: bool">
+<meta name="twitter:title" content="Node中的exports和module.exports的区别">
+<meta name="twitter:description" content="在Node中，采用CommonJS模块规范。 什么是CommonJS规范？ 
+
+CommonJS 规范是为了解决 JavaScript 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/25/第二篇文章/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/14/Node中的exports和module.exports的区别/"/>
 
 
 
 
 
-  <title> 第二篇文章 | HM-Blog </title>
+  <title> Node中的exports和module.exports的区别 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/25/第二篇文章/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/14/Node中的exports和module.exports的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -331,7 +334,7 @@
             
             
               
-                第二篇文章
+                Node中的exports和module.exports的区别
               
             
           </h1>
@@ -346,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T15:22:56+08:00">
-                2017-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T21:03:49+08:00">
+                2017-08-14
               </time>
             
 
@@ -356,28 +359,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index">
-                    <span itemprop="name">es6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -399,7 +380,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      47字
+                      575字
                     </span>
               
 
@@ -415,7 +396,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      1分钟
+                      2分钟
                     </span>
               
             </div>
@@ -434,21 +415,37 @@
       
 
       
-        <h1 id="这是标题"><a href="#这是标题" class="headerlink" title="这是标题"></a>这是标题</h1><p><a href="https://www.baidu.com" target="_blank" rel="external">百度</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">props: &#123;</div><div class="line">   <span class="attr">toggleSlider</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">selectTab</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">displayTabBar</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">isDisplayTabBar</span>: boolean,</div><div class="line">   <span class="attr">selectedTab</span>: number,</div><div class="line">   <span class="attr">hasAllRead</span>: boolean,</div><div class="line">   <span class="attr">updateMessagesList</span>: <span class="function">(<span class="params">message:string</span>) =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">salemanAndProductList</span>: <span class="function">(<span class="params">empNo:string</span>) =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">toggleMessageFlow</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">isOnHomePage</span>: boolean,</div><div class="line">   <span class="attr">toIntellService</span>:<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">void</span>,</div><div class="line">   <span class="attr">empNo</span>: string,</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
+        <p>在<code>Node</code>中，采用<code>CommonJS</code>模块规范。 什么是<code>CommonJS规范</code>？ </p>
 <blockquote>
-<p>引用</p>
+<p><code>CommonJS</code> 规范是为了解决 <code>JavaScript</code> 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 <code>module.exports</code> 导出对外的变量或接口，通过 <code>require()</code> 来导入其他模块的输出到当前模块作用域中。</p>
 </blockquote>
+<a id="more"></a>
+<p>简单的说就是，根据这个规范，每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。</p>
+<p>那在<code>Node</code>中导入模块毫无疑问就是以<code>require</code>的形式，导出模块有<code>exports</code>和<code>module.exports</code>两种，本文主要讲的就是这两者的区别。  </p>
+<h5 id="一句话概括：require返回的其实module-exports这个对象，并不是exports，而我们在编写模块时用到的exports对象实际上只是对module-exports的引用-reference-。"><a href="#一句话概括：require返回的其实module-exports这个对象，并不是exports，而我们在编写模块时用到的exports对象实际上只是对module-exports的引用-reference-。" class="headerlink" title="一句话概括：require返回的其实module.exports这个对象，并不是exports，而我们在编写模块时用到的exports对象实际上只是对module.exports的引用(reference)。"></a>一句话概括：<code>require</code>返回的其实<code>module.exports</code>这个对象，并不是<code>exports</code>，而我们在编写模块时用到的<code>exports</code>对象实际上只是对<code>module.exports</code>的引用(reference)。</h5><p>那这里涉及一个<code>引用</code>概念：<br><code>ECMAScript</code>的数据类型算上es6的<code>Symbol</code>有7种，这7种又可以分为以下两种。  </p>
+<ol>
+<li>基本类型：<code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code>、<code>String</code>、<code>Symbol</code>  </li>
+<li>引用类型： <code>Object</code>  </li>
+</ol>
+<p>举个引用类型的例子：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = &#123; name: 123 &#125;</div><div class="line">var b = a  // 此处赋值其实是把b指向a在内存中的地址</div><div class="line">b.name = 456</div><div class="line">console.log(a) // &#123; name: 456 &#125; 引用导致a也变了</div><div class="line">```  </div><div class="line"></div><div class="line">那么在`Node`的每一个文件模块当中，`module.exports`默认值为`&#123;&#125;`, `exports`当然也指向这个空对象。  </div><div class="line"></div><div class="line">所以下面两者效果其实是一样的：</div></pre></td></tr></table></figure>
+<p>// a.js</p>
+<p>function foo(){<br>    console.log(‘foo’)<br>}</p>
+<p>exports.foo = foo<br>module.exports.foo = foo // 两者都是一样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么在引用的时候：</div></pre></td></tr></table></figure></p>
+<p>// b.js<br>var a = require(‘./a’)<br>a.foo()  // foo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">但是不能这么写：</div></pre></td></tr></table></figure></p>
+<p>// a.js</p>
+<p>function foo(){<br>    console.log(‘foo’)<br>}</p>
+<p>exports = foo  // ✘ 这是错误的，因为这里直接把exports指向了另一个地址，导致与<code>module.exports</code>两者引用关系断裂，require返回的其实是module.exports的初始值{}，拿不到foo。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">引用时：</div></pre></td></tr></table></figure>
+<p>// b.js</p>
+<p>var a = require(‘./a’)<br>a() // TypeError: a is not a function</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这样写才是ok的：</div></pre></td></tr></table></figure>
+<p>// a.js</p>
+<p>function foo(){<br>    console.log(‘foo’)<br>}<br>module.exports = foo // ✅ 这种是ok的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">引用时：</div></pre></td></tr></table></figure>
+<p>// b.js</p>
+<p>var a = require(‘./a’)<br>a() // foo 是能正常输出的<br>```</p>
+<p>至此，<code>exports</code>和<code>module.exports</code>的区别就是以上内容。</p>
 
       
     </div>
@@ -470,6 +467,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
+      
 
       
         
@@ -479,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/25/markdown语法的基本使用/" rel="next" title="markdow语法的基本使用">
-                <i class="fa fa-chevron-left"></i> markdow语法的基本使用
+              <a href="/2017/08/05/React中setState之后发生了什么/" rel="next" title="React中setState之后发生了什么">
+                <i class="fa fa-chevron-left"></i> React中setState之后发生了什么
               </a>
             
           </div>
@@ -488,10 +491,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/16/redux之compose源码分析/" rel="prev" title="redux之compose源码分析">
-                redux之compose源码分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -656,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这是标题"><span class="nav-number">1.</span> <span class="nav-text">这是标题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一句话概括：require返回的其实module-exports这个对象，并不是exports，而我们在编写模块时用到的exports对象实际上只是对module-exports的引用-reference-。"><span class="nav-number">1.</span> <span class="nav-text">一句话概括：require返回的其实module.exports这个对象，并不是exports，而我们在编写模块时用到的exports对象实际上只是对module.exports的引用(reference)。</span></a></li></ol></div>
             
 
           </div>

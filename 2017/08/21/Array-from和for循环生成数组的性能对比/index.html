@@ -87,15 +87,20 @@
 
 
 
-<meta name="description" content="叩首问路 码梦为生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HM-Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array.from和for循环生成数组的性能对比">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="叩首问路 码梦为生">
+<meta property="og:description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
+<meta property="og:image" content="http://yoursite.com/images/test100.png">
+<meta property="og:image" content="http://yoursite.com/images/test1000.png">
+<meta property="og:image" content="http://yoursite.com/images/test1000000.png">
+<meta property="og:updated_time" content="2017-08-21T08:17:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HM-Blog">
-<meta name="twitter:description" content="叩首问路 码梦为生">
+<meta name="twitter:title" content="Array.from和for循环生成数组的性能对比">
+<meta name="twitter:description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
+<meta name="twitter:image" content="http://yoursite.com/images/test100.png">
 
 
 
@@ -123,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/"/>
 
 
 
 
 
-  <title> HM-Blog </title>
+  <title> Array.from和for循环生成数组的性能对比 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,9 +300,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -308,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/25/第二篇文章/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -329,10 +332,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/25/第二篇文章/" itemprop="url">
-                  第二篇文章
-                </a>
+                Array.from和for循环生成数组的性能对比
               
             
           </h1>
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T15:22:56+08:00">
-                2017-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T13:42:58+08:00">
+                2017-08-21
               </time>
             
 
@@ -357,28 +357,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index">
-                    <span itemprop="name">es6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -400,191 +378,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      47字
-                    </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                  
-                    <span class="post-meta-item-text">阅读时长</span>
-                  
-                    <span title="阅读时长" }}">
-                      1分钟
-                    </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="这是标题"><a href="#这是标题" class="headerlink" title="这是标题"></a>这是标题</h1><p><a href="https://www.baidu.com" target="_blank" rel="external">百度</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">props: &#123;</div><div class="line">   <span class="attr">toggleSlider</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">selectTab</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">displayTabBar</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">isDisplayTabBar</span>: boolean,</div><div class="line">   <span class="attr">selectedTab</span>: number,</div><div class="line">   <span class="attr">hasAllRead</span>: boolean,</div><div class="line">   <span class="attr">updateMessagesList</span>: <span class="function">(<span class="params">message:string</span>) =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">salemanAndProductList</span>: <span class="function">(<span class="params">empNo:string</span>) =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">toggleMessageFlow</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>,</div><div class="line">   <span class="attr">isOnHomePage</span>: boolean,</div><div class="line">   <span class="attr">toIntellService</span>:<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">void</span>,</div><div class="line">   <span class="attr">empNo</span>: string,</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<blockquote>
-<p>引用</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/25/markdown语法的基本使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HM-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/25/markdown语法的基本使用/" itemprop="url">
-                  markdow语法的基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T13:33:01+08:00">
-                2017-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                  
-                    <span class="post-meta-item-text">字数统计</span>
-                  
-                    <span title="字数统计" }}">
-                      574字
+                      557字
                     </span>
               
 
@@ -619,26 +413,41 @@
       
 
       
-        
-          <h3 id="1-markdown是什么？"><a href="#1-markdown是什么？" class="headerlink" title="1. markdown是什么？"></a>1. markdown是什么？</h3><blockquote>
-<p>Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。<br>Markdown也可以理解为将以MARKDOWN语言编写的语言转换成HTML内容的工具，最初是一个perl脚本<em>Markdown.pl</em>。</p>
+        <p>首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？<br>一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。<code>Array.from({ length: 100 }, (v, i) =&gt; i)</code>，那么一起看下这个Array.from是什么。</p>
+<a id="more"></a>
+<h4 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from"></a>Array.from</h4><blockquote>
+<p>Array.from() 方法从一个类似数组或可迭代的对象中创建一个新的数组实例。</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/25/markdown语法的基本使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
+<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+</blockquote>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p><strong>arrayLike</strong><br>想要转换成真实数组的类数组对象或可遍历对象。  </p>
+<p><strong>mapFn</strong> 可选<br>可选参数，如果指定了该参数，则最后生成的数组会经过该函数的加工处理后再返回。 </p>
+<p><strong>thisArg</strong> 可选<br>可选参数，执行 mapFn 函数时 this 的值。</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个新的 Array 实例</p>
+<p><code>Array.from</code>其实就是可以把一个具有length属性的对象，或者是<a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">可遍历对象(iterable)</a>,转换成一个数组。</p>
+<p>ok，用法了解了，那么<code>for</code>循环生成和<code>Array.from</code>生成两者的性能如何呢？在此，我做了个时间对比：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: <span class="number">100</span> &#125;, (e, index) =&gt; index)</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line"></div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="keyword">var</span> arr = []</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++) &#123;</div><div class="line">		arr[j] = j</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了公平，测试的时候跑十次，结果也会相对稳定准确，结果如下:<br><img src="/images/test100.png"></p>
+<p>还测试了生成1000个元素的时间对比：<br><img src="/images/test1000.png"></p>
+<p>这是生成 1000000个元素的时间对比：<br><img src="/images/test1000000.png"></p>
+<p>可以看到当生成的个数越多，<code>for</code>循环的性能比<code>Array.from</code>的性能更高，普遍在2-9倍不等，当然这个数值可能有些许误差，但是无疑<code>for</code>循环略胜一筹。low的代码性能不一定差， 逼格高的代码也不一定就好，但是至少你想的出后者，可以说明你的思维和知识面够广。</p>
+<h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -647,25 +456,38 @@
       
 
       
-
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/Node中的exports和module.exports的区别/" rel="next" title="Node中的exports和module.exports的区别">
+                <i class="fa fa-chevron-left"></i> Node中的exports和module.exports的区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -673,6 +495,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -692,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -791,6 +626,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-from"><span class="nav-number">1.</span> <span class="nav-text">Array.from</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回值"><span class="nav-number">4.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">5.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +754,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

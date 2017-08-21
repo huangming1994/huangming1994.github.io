@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/images/test100.png">
 <meta property="og:image" content="http://yoursite.com/images/test1000.png">
 <meta property="og:image" content="http://yoursite.com/images/test1000000.png">
-<meta property="og:updated_time" content="2017-08-21T08:17:48.000Z">
+<meta property="og:updated_time" content="2017-08-21T08:27:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array.from和for循环生成数组的性能对比">
 <meta name="twitter:description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
@@ -425,8 +425,7 @@
 <p><strong>mapFn</strong> 可选<br>可选参数，如果指定了该参数，则最后生成的数组会经过该函数的加工处理后再返回。 </p>
 <p><strong>thisArg</strong> 可选<br>可选参数，执行 mapFn 函数时 this 的值。</p>
 <h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个新的 Array 实例</p>
-<p><code>Array.from</code>其实就是可以把一个具有length属性的对象，或者是<a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">可遍历对象(iterable)</a>,转换成一个数组。</p>
-<p>ok，用法了解了，那么<code>for</code>循环生成和<code>Array.from</code>生成两者的性能如何呢？在此，我做了个时间对比：</p>
+<p><code>Array.from</code>其实就是可以把一个具有length属性的对象，或者是<a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">可遍历对象(iterable)</a>,转换成一个数组。<br>ok，用法了解了，那么<code>for</code>循环生成和<code>Array.from</code>生成两者的性能如何呢？在此，我做了个时间对比：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: <span class="number">100</span> &#125;, (e, index) =&gt; index)</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line"></div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="keyword">var</span> arr = []</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++) &#123;</div><div class="line">		arr[j] = j</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>为了公平，测试的时候跑十次，结果也会相对稳定准确，结果如下:<br><img src="/images/test100.png"></p>
 <p>还测试了生成1000个元素的时间对比：<br><img src="/images/test1000.png"></p>

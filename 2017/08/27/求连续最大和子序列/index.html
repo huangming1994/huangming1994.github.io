@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/27/求连续最大和子序列/index.html">
 <meta property="og:site_name" content="HM-Blog">
 <meta property="og:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
-<meta property="og:updated_time" content="2017-08-27T10:32:13.000Z">
+<meta property="og:updated_time" content="2017-08-27T10:39:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="求连续最大和子序列">
 <meta name="twitter:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
@@ -374,7 +374,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      814字
+                      834字
                     </span>
               
 
@@ -433,7 +433,7 @@
 
     <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) {
         <span class="keyword">const</span> temp = getNewSeqFromPrevSeq(result[i<span class="number">-1</span>], arr[i])
-        result.push(temp) <span class="comment">// 这里的result是所有的子序列集合</span>
+        result.push(temp) <span class="comment">// 这里的result是存放所有的子序列集合，后续直接进行最大子序列和最大和的判断</span>
     }
 
     <span class="comment">// 求最大子序列和最大和</span>

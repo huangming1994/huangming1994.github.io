@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, HM" />
+  <meta name="keywords" content="算法 动态规划," />
 
 
 
@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="1. markdown是什么？
-Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。Markdown也可以理解为将以MARKDOWN语言编写的语言转换成HTML内容的工具，最初是一个perl脚本Markdown.pl。">
+<meta name="description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdow语法的基本使用">
-<meta property="og:url" content="http://yoursite.com/2017/02/25/markdown语法的基本使用/index.html">
+<meta property="og:title" content="求连续最大和子序列">
+<meta property="og:url" content="http://yoursite.com/2017/08/27/求连续最大和子序列/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="1. markdown是什么？
-Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。Markdown也可以理解为将以MARKDOWN语言编写的语言转换成HTML内容的工具，最初是一个perl脚本Markdown.pl。">
-<meta property="og:updated_time" content="2017-04-28T01:56:55.000Z">
+<meta property="og:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
+<meta property="og:updated_time" content="2017-08-27T10:29:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="markdow语法的基本使用">
-<meta name="twitter:description" content="1. markdown是什么？
-Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。Markdown也可以理解为将以MARKDOWN语言编写的语言转换成HTML内容的工具，最初是一个perl脚本Markdown.pl。">
+<meta name="twitter:title" content="求连续最大和子序列">
+<meta name="twitter:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
 
 
 
@@ -127,13 +124,13 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/25/markdown语法的基本使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/27/求连续最大和子序列/"/>
 
 
 
 
 
-  <title> markdow语法的基本使用 | HM-Blog </title>
+  <title> 求连续最大和子序列 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +307,7 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/25/markdown语法的基本使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/求连续最大和子序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -331,7 +328,7 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
             
             
               
-                markdow语法的基本使用
+                求连续最大和子序列
               
             
           </h1>
@@ -346,8 +343,8 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T13:33:01+08:00">
-                2017-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T17:13:01+08:00">
+                2017-08-27
               </time>
             
 
@@ -356,28 +353,6 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -399,7 +374,7 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      574字
+                      816字
                     </span>
               
 
@@ -415,7 +390,7 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      2分钟
+                      3分钟
                     </span>
               
             </div>
@@ -434,105 +409,47 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
       
 
       
-        <h3 id="1-markdown是什么？"><a href="#1-markdown是什么？" class="headerlink" title="1. markdown是什么？"></a>1. markdown是什么？</h3><blockquote>
-<p>Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写、易更改)编写文档，并最终以HTML格式发布。<br>Markdown也可以理解为将以MARKDOWN语言编写的语言转换成HTML内容的工具，最初是一个perl脚本<em>Markdown.pl</em>。</p>
-</blockquote>
+        <p>Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。<br>例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。</p>
 <a id="more"></a>
-<h3 id="2-markdown语法"><a href="#2-markdown语法" class="headerlink" title="2. markdown语法"></a>2. markdown语法</h3><h4 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h4><p>标题有两种形式：<br>(1) 第一种是用<code>=</code>或者<code>-</code>表示一级或者二级标题  </p>
-<blockquote>
-<p>一级标题<br><code>======</code><br>二级标题<br><code>------</code> </p>
-</blockquote>
-<p>效果如下：  </p>
-<blockquote>
-<h1 id="一级标题down"><a href="#一级标题down" class="headerlink" title="一级标题down"></a>一级标题down</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-<p>(2) 第二种就是<code>#</code>来表示1-6级标题，与HTML的h1-h6相似。  </p>
-<blockquote>
-<p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br>###### 六级标题  </p>
-</blockquote>
-<p>效果如下：  </p>
-<blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
-<h4 id="2-2-引用"><a href="#2-2-引用" class="headerlink" title="2.2 引用"></a>2.2 引用</h4><p>在段落的每行或者只在第一行使用符号&gt;,还可使用多个嵌套引用，如：</p>
-<blockquote>
-<p>> 引用<br>>&gt; 嵌套引用  </p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<p>引用</p>
-<blockquote>
-<p>嵌套引用</p>
-</blockquote>
-</blockquote>
-<h4 id="2-3-代码块"><a href="#2-3-代码块" class="headerlink" title="2.3 代码块"></a>2.3 代码块</h4><p>代码块可以在每行加上四个空格来表示代码区域，效果如：</p>
-<blockquote>
-<pre><code>function foo(){
-        return;
-}
-</code></pre></blockquote>
-<p>或者在开始与结尾用```表示一样可以，效果同上：</p>
-<blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&gt; 		<span class="keyword">return</span>;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="2-4-符号"><a href="#2-4-符号" class="headerlink" title="2.4 ``符号"></a>2.4 ``符号</h4><p>``可以用来表示相对较小区域的代码内容，或者起到标记作用，如</p>
-<blockquote>
-<p>`标记`  </p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<p><code>标记</code></p>
-</blockquote>
-<h4 id="2-5-强调与斜体"><a href="#2-5-强调与斜体" class="headerlink" title="2.5 强调与斜体"></a>2.5 强调与斜体</h4><p>在强调内容两侧分别加上*或者_，如：</p>
-<blockquote>
-<p>*斜体<em>，_斜体_<br>\</em>*粗体**，__粗体__  </p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<p><em>斜体</em>，<em>斜体</em><br><strong>粗体</strong>，<strong>粗体</strong></p>
-</blockquote>
-<h4 id="2-6-有序列表与无序列表"><a href="#2-6-有序列表与无序列表" class="headerlink" title="2.6 有序列表与无序列表"></a>2.6 有序列表与无序列表</h4><p>使用*、+、或-标记无序列表，如：</p>
-<blockquote>
-<p><em>(+-) 第一项  
-</em>(+-) 第二项<br>*(+-) 第三项</p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<p>使用数字123加上.即是有序列表，如：</p>
-<blockquote>
-<p>1. 第一项<br>2. 第二项<br>3. 第三项  </p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
+<p>一道算法中常见的面试题，正好我也碰到了，那就来看下js版本如何实现。<br>其实什么语言实现都一样，关键还是思路，我们理一下思路。首先，相加的和要最大，相加的情况分三种：  </p>
 <ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项  </li>
+<li>正正相加，正数与正数相加，毫无疑问和一定是越来越大的。  </li>
+<li>负负相加，负数与负数相加，那一定是越来越小。  </li>
+<li>正负相加，正数与负数相加，这里要注意下，相加之后和可能大于0，可能等于0，可能小于0，但要实现题目的和最大，即使你是负数相加，也肯定要取你相加之后大于的负数。  <h5 id="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"><a href="#可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。" class="headerlink" title="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"></a>可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。</h5>下面给出js版本的代码实现:  </li>
 </ol>
-</blockquote>
-<h4 id="2-7-分割线"><a href="#2-7-分割线" class="headerlink" title="2.7 分割线"></a>2.7 分割线</h4><p>分割线最常使用就是三个或以上*，还可以使用-和_，如：</p>
-<blockquote>
-<p>我是分割线1<br>*<strong><strong><strong>*</strong></strong></strong><br>我是分割线2<br>-———–<br>我是分割线3<br>_<strong><strong><strong><em>__</em></strong></strong></strong></p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<p>我是分割线1</p>
-<hr>
-<h2 id="我是分割线2"><a href="#我是分割线2" class="headerlink" title="我是分割线2"></a>我是分割线2</h2><p>我是分割线3</p>
-<hr>
-</blockquote>
-<h4 id="2-8-链接"><a href="#2-8-链接" class="headerlink" title="2.8 链接"></a>2.8 链接</h4><p>链接由[]与()组成，[]中的指描述，()中跟链接地址，如：</p>
-<blockquote>
-<p>[百度](<a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a>)</p>
-</blockquote>
-<p>效果如下：</p>
-<blockquote>
-<p><a href="https://www.baidu.com/" target="_blank" rel="external">百度</a></p>
-</blockquote>
+<pre><code class="javascript"><span class="comment">// 关键之处就是getNewSeqFromPrevSeq方法得判断前面连续子序列的总和，大于0，就拼接并累计值，小于0，舍弃之前子序列，保留自身，重新累计值。</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getNewSeqFromPrevSeq</span>(<span class="params">prevSeq, currentValue</span>)</span>{
+    <span class="keyword">const</span> newSeq = prevSeq.sum &gt; <span class="number">0</span> ? [...prevSeq.seq, currentValue] : [currentValue] <span class="comment">// 这里判断上个子序列是否大于(或等于)，取决于你相加等于0要不要拼接子序列</span>
+    <span class="keyword">const</span> newSum = prevSeq.sum &gt; <span class="number">0</span> ? prevSeq.sum + currentValue : currentValue
+    <span class="keyword">return</span> { <span class="attr">seq</span>: newSeq, <span class="attr">sum</span>: newSum }
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getMaxSubSeq</span>(<span class="params">arr</span>)</span>{
+    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(arr) || arr.length &lt;= <span class="number">0</span> ) <span class="keyword">return</span>
+
+    <span class="keyword">const</span> result = []
+    result.push({ <span class="attr">seq</span>: [arr[<span class="number">0</span>]], <span class="attr">sum</span>: arr[<span class="number">0</span>] })  <span class="comment">// 初始化数组第一项为最大和子序列</span>
+
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) {
+        <span class="keyword">const</span> temp = getNewSeqFromPrevSeq(result[i<span class="number">-1</span>], arr[i])
+        result.push(temp) <span class="comment">// 这里的result是所有的子序列集合</span>
+    }
+
+    <span class="comment">// 求最大子序列和最大和</span>
+    <span class="keyword">let</span> max = <span class="number">-99999</span>
+    <span class="keyword">let</span> seq = []
+    result.forEach(<span class="function">(<span class="params">v, i</span>) =&gt;</span> {
+        (v.sum &gt; max) &amp;&amp; (max = v.sum, seq = v.seq)
+    })
+
+    <span class="built_in">console</span>.log(<span class="string">`输入：<span class="subst">${arr}</span>`</span>)
+    <span class="built_in">console</span>.log(<span class="string">`输出：连续最大和子序列为<span class="subst">${seq}</span>, 最大和为<span class="subst">${max}</span>`</span>)
+}
+<span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-4</span>,<span class="number">3</span>]
+getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为3,0-1,2, 最大和为4</span>
+</code></pre>
+<p>以上，就是具体的代码实现。其实这个问题设计到一个概念，<code>动态规划</code>，感兴趣的同学或者有疑问的可以自行百度谷歌,因为我也不会（逃</p>
+<h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
 
       
     </div>
@@ -554,6 +471,12 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法-动态规划/" rel="tag"># 算法 动态规划</a>
+          
+        </div>
+      
 
       
         
@@ -563,15 +486,15 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/21/Array-from和for循环生成数组的性能对比/" rel="next" title="Array.from和for循环生成数组的性能对比">
+                <i class="fa fa-chevron-left"></i> Array.from和for循环生成数组的性能对比
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/25/第二篇文章/" rel="prev" title="第二篇文章">
-                第二篇文章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -736,7 +659,7 @@ Markdown是一种轻量级标记语言，它以纯文本形式(易读、易写�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-markdown是什么？"><span class="nav-number">1.</span> <span class="nav-text">1. markdown是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-markdown语法"><span class="nav-number">2.</span> <span class="nav-text">2. markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-标题"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题down"><span class="nav-number"></span> <span class="nav-text">一级标题down</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number"></span> <span class="nav-text">二级标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题-1"><span class="nav-number"></span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-number">1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-引用"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-代码块"><span class="nav-number">1.3.</span> <span class="nav-text">2.3 代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-符号"><span class="nav-number">1.4.</span> <span class="nav-text">2.4 ``符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-强调与斜体"><span class="nav-number">1.5.</span> <span class="nav-text">2.5 强调与斜体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-有序列表与无序列表"><span class="nav-number">1.6.</span> <span class="nav-text">2.6 有序列表与无序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-分割线"><span class="nav-number">1.7.</span> <span class="nav-text">2.7 分割线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我是分割线2"><span class="nav-number"></span> <span class="nav-text">我是分割线2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-链接"><span class="nav-number">0.1.</span> <span class="nav-text">2.8 链接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"><span class="nav-number">1.</span> <span class="nav-text">可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number"></span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></div>
             
 
           </div>

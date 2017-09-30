@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/27/求连续最大和子序列/index.html">
 <meta property="og:site_name" content="HM-Blog">
 <meta property="og:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
-<meta property="og:updated_time" content="2017-08-27T10:42:01.000Z">
+<meta property="og:updated_time" content="2017-09-30T13:57:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="求连续最大和子序列">
 <meta name="twitter:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
@@ -415,7 +415,7 @@
 <ol>
 <li>正正相加，正数与正数相加，毫无疑问和一定是越来越大的。  </li>
 <li>负负相加，负数与负数相加，那一定是越来越小。  </li>
-<li>正负相加，正数与负数相加，这里要注意下，相加之后和可能大于0，可能等于0，可能小于0，但要实现题目的和最大，即使你是负数相加，也肯定要取你相加之后大于0的负数。  </li>
+<li>正负相加，正数与负数相加，这里要注意下，相加之后和可能大于0，可能等于0，可能小于0，但要实现题目的和最大，即使你是正负相加，也肯定要取你相加之后大于0的负数。  </li>
 </ol>
 <h5 id="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"><a href="#可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。" class="headerlink" title="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"></a>可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。</h5><p>下面给出js版本的代码实现:  </p>
 <pre><code class="javascript"><span class="comment">// 关键之处就是getNewSeqFromPrevSeq方法得判断前面连续子序列的总和，大于0，就拼接并累计值，小于0，舍弃之前子序列，保留自身，重新累计值。</span>
@@ -571,7 +571,7 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +589,7 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

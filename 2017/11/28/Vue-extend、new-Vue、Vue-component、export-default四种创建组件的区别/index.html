@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法 动态规划," />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
+<meta name="description" content="刚入职新公司，算是暂时从React转到Vue，所以对Vue的理解和使用也算是新手，每次碰到各种问题，就只能带着问题去解决。 问题的由来是因为看到项目中创建组件的方式是直接export default直接导出一个对象，而之前自己写demo的时候都是Vue.extend或者是new Vue, 也不知道为什么这么用，查了下还有Vue.component加上上述的三个，总共四种方式创建组件， 索性就去看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="求连续最大和子序列">
-<meta property="og:url" content="http://yoursite.com/2017/08/27/求连续最大和子序列/index.html">
+<meta property="og:title" content="Vue.extend、new Vue、Vue.component、export default四种创建组件的区别">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Vue-extend、new-Vue、Vue-component、export-default四种创建组件的区别/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
-<meta property="og:updated_time" content="2017-09-30T13:57:21.000Z">
+<meta property="og:description" content="刚入职新公司，算是暂时从React转到Vue，所以对Vue的理解和使用也算是新手，每次碰到各种问题，就只能带着问题去解决。 问题的由来是因为看到项目中创建组件的方式是直接export default直接导出一个对象，而之前自己写demo的时候都是Vue.extend或者是new Vue, 也不知道为什么这么用，查了下还有Vue.component加上上述的三个，总共四种方式创建组件， 索性就去看">
+<meta property="og:updated_time" content="2017-11-30T11:54:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="求连续最大和子序列">
-<meta name="twitter:description" content="Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。">
+<meta name="twitter:title" content="Vue.extend、new Vue、Vue.component、export default四种创建组件的区别">
+<meta name="twitter:description" content="刚入职新公司，算是暂时从React转到Vue，所以对Vue的理解和使用也算是新手，每次碰到各种问题，就只能带着问题去解决。 问题的由来是因为看到项目中创建组件的方式是直接export default直接导出一个对象，而之前自己写demo的时候都是Vue.extend或者是new Vue, 也不知道为什么这么用，查了下还有Vue.component加上上述的三个，总共四种方式创建组件， 索性就去看">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/27/求连续最大和子序列/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/Vue-extend、new-Vue、Vue-component、export-default四种创建组件的区别/"/>
 
 
 
 
 
-  <title> 求连续最大和子序列 | HM-Blog </title>
+  <title> Vue.extend、new Vue、Vue.component、export default四种创建组件的区别 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/求连续最大和子序列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/Vue-extend、new-Vue、Vue-component、export-default四种创建组件的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -328,7 +328,7 @@
             
             
               
-                求连续最大和子序列
+                Vue.extend、new Vue、Vue.component、export default四种创建组件的区别
               
             
           </h1>
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T17:13:01+08:00">
-                2017-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T17:37:20+08:00">
+                2017-11-28
               </time>
             
 
@@ -374,7 +374,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      835字
+                      286字
                     </span>
               
 
@@ -390,7 +390,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      3分钟
+                      1分钟
                     </span>
               
             </div>
@@ -409,48 +409,18 @@
       
 
       
-        <p>Q：在一个数组中，元素可能有正整数，0，负整数，求其一个连续的子序列，使得该子序列的元素相加之和是所有连续子序列和最大的。<br>例如：数组[1,2,-5,3,0,-1,2,-4,3]，其最大和的子序列为[3,0,-1,2]，其最大和为4，实现其代码。</p>
+        <p> 刚入职新公司，算是暂时从React转到Vue，所以对Vue的理解和使用也算是新手，每次碰到各种问题，就只能带着问题去解决。 问题的由来是因为看到项目中创建组件的方式是直接<code>export default</code>直接导出一个对象，而之前自己写demo的时候都是<code>Vue.extend</code>或者是<code>new Vue</code>, 也不知道为什么这么用，查了下还有<code>Vue.component</code>加上上述的三个，总共四种方式创建组件， 索性就去看下四种有什么区别。</p>
 <a id="more"></a>
-<p>一道算法中常见的面试题，正好我也碰到了，那就来看下js版本如何实现。<br>其实什么语言实现都一样，关键还是思路，我们理一下思路。首先，相加的和要最大，相加的情况分三种：  </p>
-<ol>
-<li>正正相加，正数与正数相加，毫无疑问和一定是越来越大的。  </li>
-<li>负负相加，负数与负数相加，那一定是越来越小。  </li>
-<li>正负相加，正数与负数相加，这里要注意下，相加之后和可能大于0，可能等于0，可能小于0，但要实现题目的和最大，即使你是正负相加，也肯定要取你相加之后大于0的负数。  </li>
-</ol>
-<h5 id="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"><a href="#可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。" class="headerlink" title="可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"></a>可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。</h5><p>下面给出js版本的代码实现:  </p>
-<pre><code class="javascript"><span class="comment">// 关键之处就是getNewSeqFromPrevSeq方法得判断前面连续子序列的总和，大于0，就拼接并累计值，小于0，舍弃之前子序列，保留自身，重新累计值。</span>
-<span class="function"><span class="keyword">function</span> <span class="title">getNewSeqFromPrevSeq</span>(<span class="params">prevSeq, currentValue</span>)</span>{
-    <span class="keyword">const</span> newSeq = prevSeq.sum &gt; <span class="number">0</span> ? [...prevSeq.seq, currentValue] : [currentValue] <span class="comment">// 这里判断上个子序列是否大于(或等于)，取决于你相加等于0要不要拼接子序列</span>
-    <span class="keyword">const</span> newSum = prevSeq.sum &gt; <span class="number">0</span> ? prevSeq.sum + currentValue : currentValue
-    <span class="keyword">return</span> { <span class="attr">seq</span>: newSeq, <span class="attr">sum</span>: newSum }
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">getMaxSubSeq</span>(<span class="params">arr</span>)</span>{
-    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(arr) || arr.length &lt;= <span class="number">0</span> ) <span class="keyword">return</span>
-
-    <span class="keyword">const</span> result = []
-    result.push({ <span class="attr">seq</span>: [arr[<span class="number">0</span>]], <span class="attr">sum</span>: arr[<span class="number">0</span>] })  <span class="comment">// 初始化数组第一项为最大和子序列</span>
-
-    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) {
-        <span class="keyword">const</span> temp = getNewSeqFromPrevSeq(result[i<span class="number">-1</span>], arr[i])
-        result.push(temp) <span class="comment">// 这里的result是存放所有的子序列集合，后续直接进行最大子序列和最大和的判断</span>
-    }
-
-    <span class="comment">// 求最大子序列和最大和</span>
-    <span class="keyword">let</span> max = <span class="number">-99999</span>
-    <span class="keyword">let</span> seq = []
-    result.forEach(<span class="function">(<span class="params">v, i</span>) =&gt;</span> {
-        (v.sum &gt; max) &amp;&amp; (max = v.sum, seq = v.seq)
-    })
-
-    <span class="built_in">console</span>.log(<span class="string">`输入：<span class="subst">${arr}</span>`</span>)
-    <span class="built_in">console</span>.log(<span class="string">`输出：连续最大和子序列为<span class="subst">${seq}</span>, 最大和为<span class="subst">${max}</span>`</span>)
-}
-<span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-4</span>,<span class="number">3</span>]
-getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为3,0-1,2, 最大和为4</span>
-</code></pre>
-<p>以上，就是具体的代码实现。其实这个问题设计到一个概念，<a href="https://www.zhihu.com/question/23995189" target="_blank" rel="external">动态规划</a>，感兴趣的同学或者有疑问的可以自行看下,因为我也不会（逃</p>
-<h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
+<h4 id="其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。"><a href="#其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。" class="headerlink" title="其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。"></a>其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。</h4><p>先直接看看四种写法吧:  </p>
+<p>1： Vue.extend</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">	&lt;p&gt;&#123;&#123; this is msg &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	import Vue from 'vue'</div><div class="line">	export default Vue.extend(&#123;</div><div class="line">		data() &#123;</div><div class="line">			return &#123;</div><div class="line">				msg : 'Vue.extend'</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Vue.extend</p>
+<p>2：new Vue</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">	&lt;p&gt;&#123;&#123; this is msg &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	import Vue from 'vue'</div><div class="line">	export default new Vue(&#123;</div><div class="line">		data() &#123;</div><div class="line">			return &#123;</div><div class="line">				msg : 'new Vue'</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>3：Vue.component</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">	&lt;p&gt;&#123;&#123; this is msg &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	import Vue from 'vue'</div><div class="line">	export default Vue.component('component-name', &#123;</div><div class="line">		data() &#123;</div><div class="line">			return &#123;</div><div class="line">				msg : 'Vue.component'</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>4：export default</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">	&lt;p&gt;&#123;&#123; this is msg &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	export default &#123;</div><div class="line">		data() &#123;</div><div class="line">			return &#123;</div><div class="line">				msg : 'export default'</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -474,7 +444,7 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
       
         <div class="post-tags">
           
-            <a href="/tags/算法-动态规划/" rel="tag"># 算法 动态规划</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -487,8 +457,8 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/21/Array-from和for循环生成数组的性能对比/" rel="next" title="Array.from和for循环生成数组的性能对比">
-                <i class="fa fa-chevron-left"></i> Array.from和for循环生成数组的性能对比
+              <a href="/2017/10/10/react-intl实现多语言国际化/" rel="next" title="react-intl实现多语言国际化">
+                <i class="fa fa-chevron-left"></i> react-intl实现多语言国际化
               </a>
             
           </div>
@@ -497,8 +467,8 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/04/react-navigation-VS-react-router/" rel="prev" title="react-navigation VS react-router">
-                react-navigation VS react-router <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/25/React中setState之后发生了什么/" rel="prev" title="你真的理解setState吗？">
+                你真的理解setState吗？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -664,7 +634,7 @@ getMaxSubSeq(arr)  <span class="comment">// 输出：连续最大和子序列为
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。"><span class="nav-number">1.</span> <span class="nav-text">可以得出结论：假设你初始值是0，碰到正数就相加并累计序列，碰到负数相加和为正也相加并累计，碰到负数如果相加和为负就舍弃，重新累计序列。换成代码逻辑就是，遍历数组时，对于每一位数，先取出前一位的信息进行判断前面连续子序列的总和，如果总和大于等于0，则将自己与前面进行拼接，否则只保留自身，以此生成处理信息传递给下一位处理。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number"></span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。"><span class="nav-number">1.</span> <span class="nav-text">其实问题算是半个伪命题，因为看到后面你就会知道为什么我会这么说。</span></a></li></ol></div>
             
 
           </div>

@@ -87,20 +87,16 @@
 
 
 
-<meta name="description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
+<meta name="description" content="前言刚为祖国母亲庆完生，眼看假余额就要不足了，小伙伴们玩的是否开心呢，反正我是死宅在家，没出去玩，在家也没好好学习，实属惭愧。这不，今天和大家分享下关于 react 驱动 ui 更新的几种方式，都说 react 是单向数据流，数据驱动 ui，那么你知道在 react 中有几种驱动视图更新的方式呢。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array.from和for循环生成数组的性能对比">
-<meta property="og:url" content="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/index.html">
+<meta property="og:title" content="聊一聊React中更新UI视图的几种方式">
+<meta property="og:url" content="http://yoursite.com/2018/10/08/聊一聊React中更新UI视图的几种方式/index.html">
 <meta property="og:site_name" content="HM-Blog">
-<meta property="og:description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
-<meta property="og:image" content="http://yoursite.com/images/test100.png">
-<meta property="og:image" content="http://yoursite.com/images/test1000.png">
-<meta property="og:image" content="http://yoursite.com/images/test1000000.png">
-<meta property="og:updated_time" content="2017-08-21T08:38:49.000Z">
+<meta property="og:description" content="前言刚为祖国母亲庆完生，眼看假余额就要不足了，小伙伴们玩的是否开心呢，反正我是死宅在家，没出去玩，在家也没好好学习，实属惭愧。这不，今天和大家分享下关于 react 驱动 ui 更新的几种方式，都说 react 是单向数据流，数据驱动 ui，那么你知道在 react 中有几种驱动视图更新的方式呢。">
+<meta property="og:updated_time" content="2018-10-08T02:31:43.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Array.from和for循环生成数组的性能对比">
-<meta name="twitter:description" content="首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。Array.from({ length: 100 }, (v, i) =&amp;gt; i)，那么一起看下这个Array.from是什么。">
-<meta name="twitter:image" content="http://yoursite.com/images/test100.png">
+<meta name="twitter:title" content="聊一聊React中更新UI视图的几种方式">
+<meta name="twitter:description" content="前言刚为祖国母亲庆完生，眼看假余额就要不足了，小伙伴们玩的是否开心呢，反正我是死宅在家，没出去玩，在家也没好好学习，实属惭愧。这不，今天和大家分享下关于 react 驱动 ui 更新的几种方式，都说 react 是单向数据流，数据驱动 ui，那么你知道在 react 中有几种驱动视图更新的方式呢。">
 
 
 
@@ -128,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/08/聊一聊React中更新UI视图的几种方式/"/>
 
 
 
 
 
-  <title> Array.from和for循环生成数组的性能对比 | HM-Blog </title>
+  <title> 聊一聊React中更新UI视图的几种方式 | HM-Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/21/Array-from和for循环生成数组的性能对比/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/聊一聊React中更新UI视图的几种方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HM">
@@ -332,7 +328,7 @@
             
             
               
-                Array.from和for循环生成数组的性能对比
+                聊一聊React中更新UI视图的几种方式
               
             
           </h1>
@@ -347,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T13:42:58+08:00">
-                2017-08-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T10:29:42+08:00">
+                2018-10-08
               </time>
             
 
@@ -378,7 +374,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      557字
+                      1,238字
                     </span>
               
 
@@ -394,7 +390,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      2分钟
+                      5分钟
                     </span>
               
             </div>
@@ -413,25 +409,30 @@
       
 
       
-        <p>首先思考一个问题，如何生成一个[0,1,2…97,98,99]的数组？<br>一般第一时间想到的肯定是for循环跑一下，完事了。但是有没有什么奇淫技巧实现呢，答案是有的。<code>Array.from({ length: 100 }, (v, i) =&gt; i)</code>，那么一起看下这个Array.from是什么。</p>
-<a id="more"></a>
-<h4 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from"></a>Array.from</h4><blockquote>
-<p>Array.from() 方法从一个类似数组或可迭代的对象中创建一个新的数组实例。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>刚为祖国母亲庆完生，眼看假余额就要不足了，小伙伴们玩的是否开心呢，反正我是死宅在家，没出去玩，在家也没好好学习，实属惭愧。这不，今天和大家分享下关于 react 驱动 ui 更新的几种方式，都说 react 是单向数据流，数据驱动 ui，那么你知道在 react 中有几种驱动视图更新的方式呢。<br><a id="more"></a></p>
+<h2 id="1-setState"><a href="#1-setState" class="headerlink" title="1. setState"></a>1. setState</h2><p>setState 是众所周知最常见的更新视图的方式了，只需要给个初始 state，需要更新的时候调用 this.setState, 组件会经历 <code>shoudlComponentUpdate</code> =&gt; <code>componentWillUpdate</code> =&gt; <code>render</code> =&gt; <code>componentDidUpdate</code> 四个过程，如果没有在 shouldComponentUpdate 中手动 return false 的情况下，那么 ui 此时就会更新。</p>
+<p><strong>需要注意的是，尽管 this.setState({}) 参数为空对象时，react 一样会更新，调用上面的四个生命周期，只是 ui 视图不有会变化。</strong> </p>
+<p>当然这些都要基于 class 组件，因为 setState 是 Component 原型上的方法，必须得是继承 Component的组件才能调用 this.setState。(之前有写过一篇<a href="https://juejin.im/post/5b45c57c51882519790c7441" target="_blank" rel="external">关于setState的文章</a>，感兴趣的大佬也可以去看看。)</p>
+<h2 id="2-forceUpdate"><a href="#2-forceUpdate" class="headerlink" title="2. forceUpdate"></a>2. forceUpdate</h2><blockquote>
+<p>Calling forceUpdate() will cause render() to be called on the component, skipping shouldComponentUpdate(). This will trigger the normal lifecycle methods for child components, including the shouldComponentUpdate() method of each child. React will still only update the DOM if the markup changes.  </p>
 </blockquote>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
-<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+<p>官方说的比较清楚，调用 forceUpdate 后当前组件会跳过 shouldComponentUpdate 这个钩子，尽管手动 return false，也一样会更新，单词字面理解也是<strong>强制更新</strong>，但是需要注意的是，子组件的更新还是会受到 shouldComponentUpdate 控制。</p>
+<blockquote>
+<p>Normally you should try to avoid all uses of forceUpdate() and only read from this.props and this.state in render().</p>
 </blockquote>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p><strong>arrayLike</strong><br>想要转换成真实数组的类数组对象或可遍历对象。  </p>
-<p><strong>mapFn</strong> 可选<br>可选参数，如果指定了该参数，则最后生成的数组会经过该函数的加工处理后再返回。 </p>
-<p><strong>thisArg</strong> 可选<br>可选参数，执行 mapFn 函数时 this 的值。</p>
-<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个新的 Array 实例</p>
-<p><code>Array.from</code>其实就是可以把一个具有length属性的对象，或者是<a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">可遍历对象(iterable)</a>,转换成一个数组。<br>ok，用法了解了，那么<code>for</code>循环生成和<code>Array.from</code>生成两者的性能如何呢？在此，我做了个时间对比：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: <span class="number">100</span> &#125;, (e, index) =&gt; index)</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`Array.from第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line"></div><div class="line">	<span class="built_in">console</span>.time(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">	<span class="keyword">var</span> arr = []</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++) &#123;</div><div class="line">		arr[j] = j</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">`for循环第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>次`</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>为了公平，测试的时候跑十次，结果也会相对稳定准确，结果如下:<br><img src="/images/test100.png"></p>
-<p>还测试了生成1000个元素的时间对比：<br><img src="/images/test1000.png"></p>
-<p>这是生成 1000000个元素的时间对比：<br><img src="/images/test1000000.png"></p>
-<p>可以看到当生成的个数越多，<code>for</code>循环的性能比<code>Array.from</code>的性能更高，普遍在2-9倍不等，当然这个数值可能有些许误差，但是无疑<code>for</code>循环略胜一筹。low的代码性能不一定差， 逼格高的代码也不一定就好，但是至少你想的出后者，可以说明你的思维和知识面够广。</p>
-<h4 id="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><a href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。" class="headerlink" title="菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"></a>菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</h4><p>著作权归作者所有。<br>商业转载请联系作者获得授权,非商业转载请注明出处。</p>
+<p>forceUpdate的使用场景一般是视图更新来源于其他非 state、props的数据，比如绑定在 组件实例上的属性，或者是直接修改 this.state.xxx = xxx ，然后调用 this.forceUpdate()，不过官方不建议这么做，正常情况下应该避免使用 forceUpdate，通过 state 或者 props 去更新视图。</p>
+<h2 id="3-原生操作dom"><a href="#3-原生操作dom" class="headerlink" title="3. 原生操作dom"></a>3. 原生操作dom</h2><p>在 react 中难免会有操作原生 dom 的时候，比如你用了第三方比如 jquery 这种需要获取 dom 的库，或者你需要实现一个拖拽，双指缩放的组件，对于这些，你也许可以用操作的 dom 的方式绕过 react 的 setState 再到 dom diff 一系列的计算，直接更新 dom ，提高些许性能。</p>
+<p>以上三种更新 ui 的方式，我这边有个<a href="https://codesandbox.io/s/nkm5plpq8m" target="_blank" rel="external">Demo</a>, <strong>需要注意的是，当通过 setState 更新改变颜色变红，在点击原生 dom 按钮改变颜色变绿，这时在点击 setState 的按钮，发现视图不更新，但是还是走了 render 函数，这是因为点击原生 dom 按钮前， this.state.backgroundColor 值是 red，原生操作是直接改变的 dom style，在点回 setState 按钮，其实 this.state.backgroundColor的值还是 red， 虽然走了更新逻辑，但是由于 react 的 新老 virtual dom 对比的时候，发现颜色并没改变， 导致没有 patch 到 ui 上</strong>。 </p>
+<h2 id="4-dispatch-action"><a href="#4-dispatch-action" class="headerlink" title="4. dispatch action"></a>4. dispatch action</h2><p>上面的几种方式都是通过 react 本身自带的 state 去更新 ui， 当项目中使用 redux 时， 我们一般会通过 dispach 一个 action, 改变 store，然后更新 ui，dispatch action 是通过改变 props 去驱动视图的，大家在使用的时候有没有想过为什么 this.props.dispatch({ type: ‘xxx’ }), 就可以驱动 ui 视图更新呢？</p>
+<p>这边简单的讲下，当我们dispatch 一个 action 的时候， 调用的其实是 store.dispatch，这个都没问题，store.dispatch 会去跑一遍所有注册在 createStore 中的 reducer， 找到对应的 type 更新数据，返回一个新的 state。</p>
+<p> 而我们的组件想拿到 store 的数据必须通过 connect(mapStateToProps, mapDispatchToProps)(App) 像这样，react-redux 中的 Connect 组件会在 componengDidMount 的时候去 调用 一个 <code>trySubscribe</code> 的方法，其内部调用 store.subscribe 去订阅一个 <code>handleChange</code> 的方法。</p>
+<p>所以当你 dispatch action 的时候，就会触发 Connect 组件中的方法， Connect 组件中也维护了一个叫做 <code>storeState</code> 的 state，每次拿到新的 sotre 就去调用 setState， 触发 render 函数， render 函数会根据你 connect 中传入的 mapStateToProps， mapDispatchToProps，包括可选参数 mergeProps， 去做一个 props 的合并动作， 最终在 Connect 组件内部 return 出来一个 <code>createElement(WrappedComponent,this.mergedProps)</code> 这样的东西，而 createElement 第二个参数就是你组件的 props， 那么每次 props 变了，就会驱动视图的更新。这就是 Redux 其中的中做原理，当然这边描述的比较简短， 下次单独写一篇关于 react、 redux、 react-redux 的文章。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>通过调用 this.setState 改变 state 驱动视图。</li>
+<li>通过调用 this.forceUpdate 强制更新视图。</li>
+<li>通过操作原生 dom 更新视图。</li>
+<li>通过改变 props 驱动视图（redux 或者 修改父子组件传递 props ）。</li>
+</ol>
 
       
     </div>
@@ -462,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/14/Node中的exports和module.exports的区别/" rel="next" title="Node中的exports和module.exports的区别">
-                <i class="fa fa-chevron-left"></i> Node中的exports和module.exports的区别
+              <a href="/2018/07/25/你真的理解setState吗？/" rel="next" title="你真的理解setState吗？">
+                <i class="fa fa-chevron-left"></i> 你真的理解setState吗？
               </a>
             
           </div>
@@ -471,10 +472,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/27/求连续最大和子序列/" rel="prev" title="求连续最大和子序列">
-                求连续最大和子序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -639,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-from"><span class="nav-number">1.</span> <span class="nav-text">Array.from</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回值"><span class="nav-number">4.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。"><span class="nav-number">5.</span> <span class="nav-text">菜鸟学习笔记，如有不对，还希望高手指点。如有造成误解，还希望多多谅解。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-setState"><span class="nav-number"></span> <span class="nav-text">1. setState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-forceUpdate"><span class="nav-number"></span> <span class="nav-text">2. forceUpdate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-原生操作dom"><span class="nav-number"></span> <span class="nav-text">3. 原生操作dom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-dispatch-action"><span class="nav-number"></span> <span class="nav-text">4. dispatch action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
             
 
           </div>
